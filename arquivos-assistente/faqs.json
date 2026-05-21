@@ -1,0 +1,272 @@
+[
+  {
+    "id": 1,
+    "tipo": "faq",
+    "categoria": "Admissão Hospitalar",
+    "conteudo": {
+      "pergunta": "Quais documentos são necessários para a admissão hospitalar?",
+      "resposta": "São necessários documento de identificação com foto, cartão do plano de saúde (se houver), encaminhamento médico e exames pré-hospitalares quando disponíveis."
+    }
+  },
+  {
+    "id": 2,
+    "tipo": "faq",
+    "categoria": "Admissão Hospitalar",
+    "conteudo": {
+      "pergunta": "Como funciona o processo de internação emergencial?",
+      "resposta": "Na internação emergencial, o paciente é atendido imediatamente, com registro posterior da documentação e autorização, conforme protocolo hospitalar."
+    }
+  },
+  {
+    "id": 3,
+    "tipo": "faq",
+    "categoria": "Prontuário Médico",
+    "conteudo": {
+      "pergunta": "O que é o prontuário médico e qual sua importância?",
+      "resposta": "O prontuário médico é o registro completo das informações clínicas do paciente, fundamental para garantir a continuidade e segurança do tratamento."
+    }
+  },
+  {
+    "id": 4,
+    "tipo": "faq",
+    "categoria": "Prontuário Médico",
+    "conteudo": {
+      "pergunta": "Quem pode acessar o prontuário médico do paciente?",
+      "resposta": "Acesso é restrito à equipe médica, profissionais de saúde autorizados e ao próprio paciente, respeitando a legislação de privacidade e sigilo médico."
+    }
+  },
+  {
+    "id": 5,
+    "tipo": "faq",
+    "categoria": "Alta Hospitalar",
+    "conteudo": {
+      "pergunta": "Como é realizado o processo de alta hospitalar?",
+      "resposta": "O processo inclui avaliação médica, orientações sobre cuidados pós-alta, prescrição de medicamentos e agendamento de retornos, além da entrega do relatório de alta."
+    }
+  },
+  {
+    "id": 6,
+    "tipo": "faq",
+    "categoria": "Alta Hospitalar",
+    "conteudo": {
+      "pergunta": "Quais cuidados devo seguir após a alta hospitalar?",
+      "resposta": "Siga as orientações médicas quanto a medicação, alimentação, repouso, sinais de alerta e comparecimento às consultas de acompanhamento."
+    }
+  },
+  {
+    "id": 7,
+    "tipo": "faq",
+    "categoria": "Exames e Diagnósticos",
+    "conteudo": {
+      "pergunta": "Como posso obter os resultados dos meus exames realizados no hospital?",
+      "resposta": "Os resultados podem ser retirados no setor de exames ou acessados por meio do portal do paciente, conforme disponibilizado pelo hospital."
+    }
+  },
+  {
+    "id": 8,
+    "tipo": "faq",
+    "categoria": "Exames e Diagnósticos",
+    "conteudo": {
+      "pergunta": "Quais exames são comumente realizados em internações hospitalares?",
+      "resposta": "Exames de sangue, imagem como raio-x, ultrassonografia, tomografia, além de exames específicos conforme o quadro clínico do paciente."
+    }
+  },
+  {
+    "id": 9,
+    "tipo": "faq",
+    "categoria": "Visitas e Internação",
+    "conteudo": {
+      "pergunta": "Qual é o horário permitido para visitas aos pacientes internados?",
+      "resposta": "O horário varia conforme o hospital, geralmente das 10h às 20h, respeitando as normas internas e a situação clínica do paciente."
+    }
+  },
+  {
+    "id": 10,
+    "tipo": "faq",
+    "categoria": "Visitas e Internação",
+    "conteudo": {
+      "pergunta": "Posso levar alimentos para um paciente internado?",
+      "resposta": "Em geral, é necessário consultar a equipe de nutrição, pois alguns pacientes possuem restrições alimentares específicas."
+    }
+  },
+  {
+    "id": 11,
+    "tipo": "faq",
+    "categoria": "Segurança do Paciente",
+    "conteudo": {
+      "pergunta": "Quais medidas de segurança são adotadas para evitar infecções hospitalares?",
+      "resposta": "Higienização rigorosa das mãos, uso de EPIs, esterilização de equipamentos e protocolos para controle de infecções são adotados pelo hospital."
+    }
+  },
+  {
+    "id": 12,
+    "tipo": "faq",
+    "categoria": "Segurança do Paciente",
+    "conteudo": {
+      "pergunta": "O que devo fazer se observar alguma falha na segurança do paciente durante a internação?",
+      "resposta": "Informe imediatamente a equipe de enfermagem ou a ouvidoria do hospital para que as providências sejam tomadas."
+    }
+  },
+  {
+    "id": 13,
+    "tipo": "faq",
+    "categoria": "Direitos do Paciente",
+    "conteudo": {
+      "pergunta": "Quais são os direitos do paciente durante a internação hospitalar?",
+      "resposta": "O paciente tem direito à informação clara, respeito, sigilo, acompanhamento, assistência adequada e à recusa de procedimentos, entre outros."
+    }
+  },
+  {
+    "id": 14,
+    "tipo": "faq",
+    "categoria": "Direitos do Paciente",
+    "conteudo": {
+      "pergunta": "Posso recusar um tratamento indicado pelo médico no hospital?",
+      "resposta": "Sim, desde que esteja consciente, o paciente pode recusar tratamentos, devendo ser informado sobre os riscos e alternativas."
+    }
+  },
+  {
+    "id": 15,
+    "tipo": "faq",
+    "categoria": "Plano de Saúde",
+    "conteudo": {
+      "pergunta": "Como funciona a cobertura do plano de saúde para internações hospitalares?",
+      "resposta": "A cobertura depende do contrato firmado, podendo variar em relação a procedimentos, tipos de acomodação e autorização prévia."
+    }
+  },
+  {
+    "id": 16,
+    "tipo": "faq",
+    "categoria": "Plano de Saúde",
+    "conteudo": {
+      "pergunta": "O que fazer em caso de negativa do plano de saúde para um procedimento hospitalar?",
+      "resposta": "Solicite uma justificativa formal e, se necessário, contate a ANS ou busque orientação jurídica para recurso administrativo ou judicial."
+    }
+  },
+  {
+    "id": 17,
+    "tipo": "faq",
+    "categoria": "Procedimentos Cirúrgicos",
+    "conteudo": {
+      "pergunta": "Como é o processo de autorização para cirurgias no hospital?",
+      "resposta": "Após avaliação médica, é necessário consentimento informado do paciente e autorização do plano de saúde ou pagamento, conforme o caso."
+    }
+  },
+  {
+    "id": 18,
+    "tipo": "faq",
+    "categoria": "Procedimentos Cirúrgicos",
+    "conteudo": {
+      "pergunta": "Quais cuidados pré-operatórios devo seguir antes da cirurgia?",
+      "resposta": "Orientações incluem jejum, suspensão de medicamentos conforme indicação, exames pré-operatórios e preparo físico adequado."
+    }
+  },
+  {
+    "id": 19,
+    "tipo": "faq",
+    "categoria": "Medicamentos",
+    "conteudo": {
+      "pergunta": "Posso levar meus próprios medicamentos para uso durante a internação?",
+      "resposta": "Em geral, o hospital fornece os medicamentos, mas caso queira levar, informe a equipe para avaliação e registro, respeitando normas internas."
+    }
+  },
+  {
+    "id": 20,
+    "tipo": "faq",
+    "categoria": "Medicamentos",
+    "conteudo": {
+      "pergunta": "Como são controlados os medicamentos administrados no hospital?",
+      "resposta": "Há protocolos rigorosos de prescrição, dispensação e administração, com registros documentados para garantir segurança e rastreabilidade."
+    }
+  },
+  {
+    "id": 21,
+    "tipo": "faq",
+    "categoria": "Cuidados com o Paciente",
+    "conteudo": {
+      "pergunta": "Quem pode acompanhar o paciente durante a internação?",
+      "resposta": "Normalmente, um acompanhante por paciente é permitido, respeitando regras do hospital e condição clínica do paciente."
+    }
+  },
+  {
+    "id": 22,
+    "tipo": "faq",
+    "categoria": "Cuidados com o Paciente",
+    "conteudo": {
+      "pergunta": "Como são garantidos os cuidados de enfermagem no hospital?",
+      "resposta": "A equipe de enfermagem trabalha em turnos, seguindo protocolos e planos de cuidado individualizados para cada paciente."
+    }
+  },
+  {
+    "id": 23,
+    "tipo": "faq",
+    "categoria": "Faturamento e Cobrança",
+    "conteudo": {
+      "pergunta": "Como funciona o faturamento da internação hospitalar?",
+      "resposta": "O faturamento é baseado nos serviços prestados, procedimentos, diárias e medicamentos, sendo cobrado pelo hospital ou pelo plano de saúde."
+    }
+  },
+  {
+    "id": 24,
+    "tipo": "faq",
+    "categoria": "Faturamento e Cobrança",
+    "conteudo": {
+      "pergunta": "Posso solicitar uma cópia da conta hospitalar detalhada?",
+      "resposta": "Sim, o hospital deve disponibilizar o demonstrativo detalhado para esclarecimento de valores cobrados."
+    }
+  },
+  {
+    "id": 25,
+    "tipo": "faq",
+    "categoria": "Emergência",
+    "conteudo": {
+      "pergunta": "Quando devo procurar o serviço de emergência hospitalar?",
+      "resposta": "Em casos de dor intensa, trauma, dificuldade respiratória, sangramentos, perda de consciência ou outras situações graves e urgentes."
+    }
+  },
+  {
+    "id": 26,
+    "tipo": "faq",
+    "categoria": "Emergência",
+    "conteudo": {
+      "pergunta": "O que levar ao hospital em uma situação de emergência?",
+      "resposta": "Leve documentos pessoais, lista de medicamentos usados, histórico médico e, se possível, contato de um familiar."
+    }
+  },
+  {
+    "id": 27,
+    "tipo": "faq",
+    "categoria": "Atendimento ao Paciente",
+    "conteudo": {
+      "pergunta": "Como posso registrar uma reclamação ou sugestão sobre o atendimento hospitalar?",
+      "resposta": "Você pode usar a ouvidoria do hospital, caixas de sugestões ou contato telefônico disponibilizado para receber seu feedback."
+    }
+  },
+  {
+    "id": 28,
+    "tipo": "faq",
+    "categoria": "Atendimento ao Paciente",
+    "conteudo": {
+      "pergunta": "O que fazer se não entender alguma orientação médica recebida?",
+      "resposta": "Peça esclarecimentos ao profissional responsável, solicitando que as informações sejam explicadas de forma clara e acessível."
+    }
+  },
+  {
+    "id": 29,
+    "tipo": "faq",
+    "categoria": "Internação",
+    "conteudo": {
+      "pergunta": "Qual a diferença entre internação eletiva e internação de urgência?",
+      "resposta": "Internação eletiva é planejada previamente, geralmente para procedimentos agendados, enquanto urgência é imediata devido a condições graves."
+    }
+  },
+  {
+    "id": 30,
+    "tipo": "faq",
+    "categoria": "Internação",
+    "conteudo": {
+      "pergunta": "Posso solicitar transferência para outro hospital durante a internação?",
+      "resposta": "Sim, mediante avaliação médica e disponibilidade, a transferência pode ser solicitada para continuidade ou adequação do tratamento."
+    }
+  }
+]

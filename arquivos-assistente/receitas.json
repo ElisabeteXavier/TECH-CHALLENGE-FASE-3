@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "tipo": "receita",
+    "categoria": "antibiótico",
+    "conteudo": {
+      "medicamento": "Amoxicilina",
+      "dosagem": "500 mg, 3 vezes ao dia, por 7 dias",
+      "orientacao": "Tomar após as refeições"
+    }
+  },
+  {
+    "id": 2,
+    "tipo": "receita",
+    "categoria": "analgésico",
+    "conteudo": {
+      "medicamento": "Paracetamol",
+      "dosagem": "500 mg, a cada 6 horas, conforme necessidade",
+      "orientacao": "Não ultrapassar 4 g por dia"
+    }
+  },
+  {
+    "id": 3,
+    "tipo": "receita",
+    "categoria": "anti-inflamatório",
+    "conteudo": {
+      "medicamento": "Ibuprofeno",
+      "dosagem": "400 mg, a cada 8 horas, por 5 dias",
+      "orientacao": "Tomar com alimento para evitar desconforto gástrico"
+    }
+  },
+  {
+    "id": 4,
+    "tipo": "receita",
+    "categoria": "antialérgico",
+    "conteudo": {
+      "medicamento": "Loratadina",
+      "dosagem": "10 mg, uma vez ao dia, por 10 dias",
+      "orientacao": "Pode ser tomado com ou sem alimentos"
+    }
+  },
+  {
+    "id": 5,
+    "tipo": "receita",
+    "categoria": "hipertensão",
+    "conteudo": {
+      "medicamento": "Enalapril",
+      "dosagem": "10 mg, uma vez ao dia",
+      "orientacao": "Tomar preferencialmente pela manhã"
+    }
+  },
+  {
+    "id": 6,
+    "tipo": "receita",
+    "categoria": "antidepressivo",
+    "conteudo": {
+      "medicamento": "Fluoxetina",
+      "dosagem": "20 mg, uma vez ao dia",
+      "orientacao": "Tomar pela manhã para evitar insônia"
+    }
+  },
+  {
+    "id": 7,
+    "tipo": "receita",
+    "categoria": "antidiabético",
+    "conteudo": {
+      "medicamento": "Metformina",
+      "dosagem": "850 mg, 2 vezes ao dia",
+      "orientacao": "Tomar durante as refeições"
+    }
+  },
+  {
+    "id": 8,
+    "tipo": "receita",
+    "categoria": "bronquitis",
+    "conteudo": {
+      "medicamento": "Salbutamol",
+      "dosagem": "2 jatos inalatórios, a cada 6 horas",
+      "orientacao": "Utilizar apenas quando necessário"
+    }
+  },
+  {
+    "id": 9,
+    "tipo": "receita",
+    "categoria": "ansiedade",
+    "conteudo": {
+      "medicamento": "Diazepam",
+      "dosagem": "5 mg, 2 vezes ao dia, por 7 dias",
+      "orientacao": "Evitar dirigir ou operar máquinas"
+    }
+  },
+  {
+    "id": 10,
+    "tipo": "receita",
+    "categoria": "antiácido",
+    "conteudo": {
+      "medicamento": "Omeprazol",
+      "dosagem": "20 mg, uma vez ao dia, por 14 dias",
+      "orientacao": "Tomar 30 minutos antes do café da manhã"
+    }
+  },
+  {
+    "id": 11,
+    "tipo": "receita",
+    "categoria": "hipotensor",
+    "conteudo": {
+      "medicamento": "Losartana",
+      "dosagem": "50 mg, uma vez ao dia",
+      "orientacao": "Manter hidratação adequada"
+    }
+  },
+  {
+    "id": 12,
+    "tipo": "receita",
+    "categoria": "antifúngico",
+    "conteudo": {
+      "medicamento": "Fluconazol",
+      "dosagem": "150 mg, dose única",
+      "orientacao": "Tomar com água"
+    }
+  },
+  {
+    "id": 13,
+    "tipo": "receita",
+    "categoria": "suplemento",
+    "conteudo": {
+      "medicamento": "Vitamina D3",
+      "dosagem": "1000 UI, uma vez ao dia",
+      "orientacao": "Tomar com uma refeição"
+    }
+  },
+  {
+    "id": 14,
+    "tipo": "receita",
+    "categoria": "antiparasitário",
+    "conteudo": {
+      "medicamento": "Albendazol",
+      "dosagem": "400 mg, dose única",
+      "orientacao": "Tomar após a refeição"
+    }
+  },
+  {
+    "id": 15,
+    "tipo": "receita",
+    "categoria": "antiviral",
+    "conteudo": {
+      "medicamento": "Oseltamivir",
+      "dosagem": "75 mg, 2 vezes ao dia, por 5 dias",
+      "orientacao": "Iniciar o quanto antes após os sintomas"
+    }
+  },
+  {
+    "id": 16,
+    "tipo": "receita",
+    "categoria": "analgésico",
+    "conteudo": {
+      "medicamento": "Dipirona",
+      "dosagem": "500 mg, a cada 6 horas, conforme necessidade",
+      "orientacao": "Não ultrapassar 4 g por dia"
+    }
+  },
+  {
+    "id": 17,
+    "tipo": "receita",
+    "categoria": "antibiótico",
+    "conteudo": {
+      "medicamento": "Claritromicina",
+      "dosagem": "500 mg, 2 vezes ao dia, por 7 dias",
+      "orientacao": "Tomar com alimento"
+    }
+  },
+  {
+    "id": 18,
+    "tipo": "receita",
+    "categoria": "anticonvulsivante",
+    "conteudo": {
+      "medicamento": "Carbamazepina",
+      "dosagem": "200 mg, 2 vezes ao dia",
+      "orientacao": "Tomar sempre no mesmo horário"
+    }
+  },
+  {
+    "id": 19,
+    "tipo": "receita",
+    "categoria": "antipsicótico",
+    "conteudo": {
+      "medicamento": "Risperidona",
+      "dosagem": "1 mg, 2 vezes ao dia",
+      "orientacao": "Tomar com alimentos para evitar desconforto"
+    }
+  },
+  {
+    "id": 20,
+    "tipo": "receita",
+    "categoria": "anti-hipertensivo",
+    "conteudo": {
+      "medicamento": "Atenolol",
+      "dosagem": "50 mg, uma vez ao dia",
+      "orientacao": "Tomar pela manhã"
+    }
+  }
+]

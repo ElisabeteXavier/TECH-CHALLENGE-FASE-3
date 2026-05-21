@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "tipo": "protocolo",
+    "categoria": "Controle de Infecção",
+    "conteudo": {
+      "titulo": "Prevenção de Infecção de Corrente Sanguínea em Cateteres Centrais",
+      "descricao": "Este protocolo visa reduzir a incidência de infecções relacionadas a cateteres venosos centrais em pacientes hospitalizados.",
+      "conduta": "Realizar higienização das mãos antes do procedimento; utilizar técnica asséptica máxima; desinfetar o local de inserção com clorexidina 2%; trocar curativos a cada 7 dias ou sempre que estiverem úmidos ou sujos; avaliar diariamente necessidade da permanência do cateter."
+    }
+  },
+  {
+    "id": 2,
+    "tipo": "protocolo",
+    "categoria": "Emergência",
+    "conteudo": {
+      "titulo": "Protocolo de Atendimento Inicial em Parada Cardiorrespiratória",
+      "descricao": "Estabelece as etapas para o atendimento rápido e eficaz a pacientes em parada cardiorrespiratória.",
+      "conduta": "Iniciar RCP imediatamente com compressões torácicas de alta qualidade; administrar ventilação via máscara com bolsa-valva; solicitar desfibrilador e administrar choque se indicado; garantir acesso venoso; administrar medicamentos conforme algoritmo ACLS."
+    }
+  },
+  {
+    "id": 3,
+    "tipo": "protocolo",
+    "categoria": "Medicina Interna",
+    "conteudo": {
+      "titulo": "Manejo da Hipertensão Arterial Sistêmica em Pacientes Hospitalizados",
+      "descricao": "Orientações para controle da pressão arterial em pacientes internados para evitar complicações.",
+      "conduta": "Monitorar PA regularmente; ajustar medicações anti-hipertensivas conforme necessidade; evitar uso de drogas que elevem PA; orientar dieta com restrição de sódio; avaliar sinais de lesão de órgão-alvo."
+    }
+  },
+  {
+    "id": 4,
+    "tipo": "protocolo",
+    "categoria": "Cirurgia",
+    "conteudo": {
+      "titulo": "Profilaxia Antibioticoterápica em Cirurgias Eletivas",
+      "descricao": "Definição do uso de antibióticos para prevenção de infecção pós-operatória em cirurgias eletivas.",
+      "conduta": "Administrar antibiótico profilático até 60 minutos antes da incisão; escolher antimicrobiano conforme tipo cirúrgico; não prolongar uso além de 24 horas no pós-operatório; monitorar sinais de infecção."
+    }
+  },
+  {
+    "id": 5,
+    "tipo": "protocolo",
+    "categoria": "Pediatria",
+    "conteudo": {
+      "titulo": "Manejo de Desidratação em Crianças",
+      "descricao": "Protocolo para avaliação e tratamento da desidratação em crianças hospitalizadas.",
+      "conduta": "Classificar grau de desidratação; iniciar reposição volêmica oral ou via intravenosa conforme gravidade; monitorar sinais vitais e diurese; reiniciar alimentação gradualmente; avaliar causas subjacentes."
+    }
+  },
+  {
+    "id": 6,
+    "tipo": "protocolo",
+    "categoria": "Oncologia",
+    "conteudo": {
+      "titulo": "Manejo de Neutropenia Febril em Pacientes Oncológicos",
+      "descricao": "Orientações para avaliação e tratamento de neutropenia febril em pacientes submetidos a quimioterapia.",
+      "conduta": "Avaliar prontamente febre em pacientes neutropênicos; coletar hemoculturas e exames laboratoriais; iniciar antibioticoterapia empírica de amplo espectro; monitorar sinais de sepse; ajustar terapia conforme cultura."
+    }
+  },
+  {
+    "id": 7,
+    "tipo": "protocolo",
+    "categoria": "Endocrinologia",
+    "conteudo": {
+      "titulo": "Controle de Hiperglicemia em Pacientes Hospitalizados",
+      "descricao": "Protocolo para manejo da hiperglicemia em pacientes internados, visando reduzir complicações metabólicas.",
+      "conduta": "Monitorar glicemia capilar regularmente; iniciar insulinoterapia conforme níveis glicêmicos; evitar o uso de hipoglicemiantes orais em pacientes graves; ajustar dieta; monitorar sinais de hipoglicemia."
+    }
+  },
+  {
+    "id": 8,
+    "tipo": "protocolo",
+    "categoria": "Psiquiatria",
+    "conteudo": {
+      "titulo": "Avaliação e Manejo da Ideação Suicida em Pacientes Hospitalizados",
+      "descricao": "Orientações para identificação e manejo de pacientes com risco de suicídio em ambiente hospitalar.",
+      "conduta": "Realizar entrevista específica para avaliação do risco; assegurar ambiente seguro; iniciar suporte psicológico; encaminhar para equipe psiquiátrica; monitorar de forma contínua."
+    }
+  },
+  {
+    "id": 9,
+    "tipo": "protocolo",
+    "categoria": "Urgência",
+    "conteudo": {
+      "titulo": "Abordagem Inicial do Acidente Vascular Cerebral Isquêmico",
+      "descricao": "Protocolo para reconhecimento e tratamento imediato de AVC isquêmico em ambiente hospitalar.",
+      "conduta": "Confirmar diagnóstico por imagem em até 1 hora; avaliar elegibilidade para trombólise; iniciar suporte ventilatório e hemodinâmico; controlar pressão arterial; monitorar sinais neurológicos."
+    }
+  },
+  {
+    "id": 10,
+    "tipo": "protocolo",
+    "categoria": "Nutrição Clínica",
+    "conteudo": {
+      "titulo": "Nutrição Enteral em Pacientes Críticos",
+      "descricao": "Diretrizes para início e monitoramento da nutrição enteral em pacientes internados em unidade de terapia intensiva.",
+      "conduta": "Iniciar nutrição enteral nas primeiras 24-48 horas; verificar tolerância digestiva; ajustar volume e velocidade conforme resposta; monitorar eletrólitos e glicemia; prevenir complicações como aspiração."
+    }
+  },
+  {
+    "id": 11,
+    "tipo": "protocolo",
+    "categoria": "Pneumologia",
+    "conteudo": {
+      "titulo": "Manejo da Pneumonia Hospitalar",
+      "descricao": "Protocolo para diagnóstico e tratamento da pneumonia adquirida no ambiente hospitalar.",
+      "conduta": "Realizar coleta de exames microbiológicos; iniciar antibioticoterapia empírica conforme perfil local; monitorar resposta clínica; ajustar medicações conforme cultura; prevenir complicações respiratórias."
+    }
+  },
+  {
+    "id": 12,
+    "tipo": "protocolo",
+    "categoria": "Anestesiologia",
+    "conteudo": {
+      "titulo": "Prevenção de Reações Alérgicas na Anestesia",
+      "descricao": "Orientações para identificação e manejo preventivo de reações alérgicas durante procedimentos anestésicos.",
+      "conduta": "Avaliar histórico alérgico do paciente; evitar agentes suspeitos; monitorar sinais vitais durante procedimento; ter medicamentos de emergência disponíveis; agir rapidamente em caso de reação."
+    }
+  },
+  {
+    "id": 13,
+    "tipo": "protocolo",
+    "categoria": "Cardiologia",
+    "conteudo": {
+      "titulo": "Manejo da Insuficiência Cardíaca Descompensada",
+      "descricao": "Protocolo para avaliação e tratamento da insuficiência cardíaca aguda em pacientes hospitalizados.",
+      "conduta": "Monitorar sinais vitais e balanço hídrico; administrar diuréticos intravenosos; otimizar terapia vasoativa; realizar suporte ventilatório se necessário; monitorar função renal."
+    }
+  },
+  {
+    "id": 14,
+    "tipo": "protocolo",
+    "categoria": "Dermatologia",
+    "conteudo": {
+      "titulo": "Manejo de Úlceras por Pressão em Pacientes Internados",
+      "descricao": "Diretrizes para prevenção e tratamento de úlceras por pressão em pacientes acamados.",
+      "conduta": "Avaliar risco com escala validada; reposicionar paciente a cada 2 horas; manter pele limpa e hidratada; utilizar curativos apropriados; tratar infecções locais."
+    }
+  },
+  {
+    "id": 15,
+    "tipo": "protocolo",
+    "categoria": "Neurologia",
+    "conteudo": {
+      "titulo": "Avaliação e Tratamento da Crise Convulsiva",
+      "descricao": "Protocolo para manejo inicial de pacientes com crise convulsiva em ambiente hospitalar.",
+      "conduta": "Garantir via aérea pérvia; administrar benzodiazepínicos intravenosos; monitorar sinais vitais; investigar causas; encaminhar para avaliação neurológica."
+    }
+  },
+  {
+    "id": 16,
+    "tipo": "protocolo",
+    "categoria": "Ginecologia e Obstetrícia",
+    "conteudo": {
+      "titulo": "Manejo da Pré-eclâmpsia Grave",
+      "descricao": "Protocolo para identificação e tratamento da pré-eclâmpsia grave em gestantes hospitalizadas.",
+      "conduta": "Monitorar pressão arterial e sinais neurológicos; administrar sulfato de magnésio para prevenção de eclâmpsia; controlar PA com anti-hipertensivos; realizar monitorização fetal; planejar parto conforme indicação."
+    }
+  },
+  {
+    "id": 17,
+    "tipo": "protocolo",
+    "categoria": "Infectologia",
+    "conteudo": {
+      "titulo": "Manejo da Sepse e Choque Séptico",
+      "descricao": "Diretrizes para diagnóstico precoce e tratamento da sepse e choque séptico em pacientes hospitalizados.",
+      "conduta": "Identificar sinais de sepse; coletar culturas antes do início da antibioticoterapia; iniciar antimicrobianos de amplo espectro em até 1 hora; administrar fluidos intravenosos; monitorar suporte ventilatório e vasopressor."
+    }
+  },
+  {
+    "id": 18,
+    "tipo": "protocolo",
+    "categoria": "Ortopedia",
+    "conteudo": {
+      "titulo": "Protocolo de Atendimento a Fraturas de Extremidades",
+      "descricao": "Orientações para avaliação e manejo inicial das fraturas de membros superiores e inferiores.",
+      "conduta": "Realizar avaliação clínica e radiológica; imobilizar membro afetado; controlar dor com analgesia adequada; monitorar sinais neurovasculares; encaminhar para ortopedista."
+    }
+  },
+  {
+    "id": 19,
+    "tipo": "protocolo",
+    "categoria": "Radiologia",
+    "conteudo": {
+      "titulo": "Segurança na Exposição a Radiações Ionizantes",
+      "descricao": "Protocolo para garantir segurança de pacientes e profissionais durante exames radiológicos.",
+      "conduta": "Utilizar proteção adequada (avental de chumbo, protetores de tireoide); limitar exposição ao mínimo necessário; verificar indicação clínica rigorosa; manter distância segura; realizar manutenção dos equipamentos."
+    }
+  },
+  {
+    "id": 20,
+    "tipo": "protocolo",
+    "categoria": "Reabilitação",
+    "conteudo": {
+      "titulo": "Protocolo de Mobilização Precoce em Pacientes Pós-Cirúrgicos",
+      "descricao": "Diretrizes para iniciar mobilização precoce visando redução de complicações pós-operatórias.",
+      "conduta": "Avaliar estabilidade clínica; iniciar mobilização passiva e ativa conforme tolerância; estimular deambulação precoce; monitorar sinais vitais durante atividade; orientar equipe multidisciplinar."
+    }
+  }
+]

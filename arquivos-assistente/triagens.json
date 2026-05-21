@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "tipo": "triagem",
+    "categoria": "Trauma",
+    "conteudo": {
+      "queixa_principal": "Paciente com dor intensa no braço esquerdo após queda da própria altura.",
+      "sinais_vitais": "PA 130/85 mmHg, FC 95 bpm, FR 18 irpm, Temp 36,8°C, SpO2 97%",
+      "classificacao_risco": "Amarelo"
+    }
+  },
+  {
+    "id": 2,
+    "tipo": "triagem",
+    "categoria": "Cardiológico",
+    "conteudo": {
+      "queixa_principal": "Paciente relata dor precordial opressiva há 30 minutos, irradiação para braço esquerdo.",
+      "sinais_vitais": "PA 140/90 mmHg, FC 110 bpm, FR 22 irpm, Temp 37°C, SpO2 95%",
+      "classificacao_risco": "Vermelho"
+    }
+  },
+  {
+    "id": 3,
+    "tipo": "triagem",
+    "categoria": "Respiratório",
+    "conteudo": {
+      "queixa_principal": "Paciente apresenta tosse seca e falta de ar progressiva há 3 dias.",
+      "sinais_vitais": "PA 120/80 mmHg, FC 100 bpm, FR 28 irpm, Temp 38,5°C, SpO2 90%",
+      "classificacao_risco": "Laranja"
+    }
+  },
+  {
+    "id": 4,
+    "tipo": "triagem",
+    "categoria": "Gastrointestinal",
+    "conteudo": {
+      "queixa_principal": "Paciente com dor abdominal difusa e vômitos nas últimas 12 horas.",
+      "sinais_vitais": "PA 110/70 mmHg, FC 105 bpm, FR 20 irpm, Temp 37,8°C, SpO2 98%",
+      "classificacao_risco": "Amarelo"
+    }
+  },
+  {
+    "id": 5,
+    "tipo": "triagem",
+    "categoria": "Neurológico",
+    "conteudo": {
+      "queixa_principal": "Paciente referindo cefaleia intensa súbita e perda de força no lado direito do corpo.",
+      "sinais_vitais": "PA 150/95 mmHg, FC 90 bpm, FR 16 irpm, Temp 36,7°C, SpO2 96%",
+      "classificacao_risco": "Vermelho"
+    }
+  },
+  {
+    "id": 6,
+    "tipo": "triagem",
+    "categoria": "Pediátrico",
+    "conteudo": {
+      "queixa_principal": "Criança de 4 anos com febre alta e dificuldade para respirar.",
+      "sinais_vitais": "PA 90/60 mmHg, FC 130 bpm, FR 40 irpm, Temp 39,5°C, SpO2 88%",
+      "classificacao_risco": "Laranja"
+    }
+  },
+  {
+    "id": 7,
+    "tipo": "triagem",
+    "categoria": "Psiquiátrico",
+    "conteudo": {
+      "queixa_principal": "Paciente com agitação psicomotora e comportamento agressivo.",
+      "sinais_vitais": "PA 135/85 mmHg, FC 105 bpm, FR 20 irpm, Temp 36,9°C, SpO2 97%",
+      "classificacao_risco": "Vermelho"
+    }
+  },
+  {
+    "id": 8,
+    "tipo": "triagem",
+    "categoria": "Dermatológico",
+    "conteudo": {
+      "queixa_principal": "Paciente com lesão cutânea extensa e prurido intenso.",
+      "sinais_vitais": "PA 120/80 mmHg, FC 85 bpm, FR 16 irpm, Temp 36,5°C, SpO2 98%",
+      "classificacao_risco": "Verde"
+    }
+  },
+  {
+    "id": 9,
+    "tipo": "triagem",
+    "categoria": "Ortopédico",
+    "conteudo": {
+      "queixa_principal": "Paciente com entorse no tornozelo direito após torção durante corrida.",
+      "sinais_vitais": "PA 125/80 mmHg, FC 80 bpm, FR 18 irpm, Temp 36,6°C, SpO2 99%",
+      "classificacao_risco": "Verde"
+    }
+  },
+  {
+    "id": 10,
+    "tipo": "triagem",
+    "categoria": "Oftalmológico",
+    "conteudo": {
+      "queixa_principal": "Paciente com dor ocular e visão embaçada após trauma no olho esquerdo.",
+      "sinais_vitais": "PA 130/85 mmHg, FC 90 bpm, FR 18 irpm, Temp 36,7°C, SpO2 98%",
+      "classificacao_risco": "Amarelo"
+    }
+  },
+  {
+    "id": 11,
+    "tipo": "triagem",
+    "categoria": "Endócrino",
+    "conteudo": {
+      "queixa_principal": "Paciente diabético com hipoglicemia e sudorese fria.",
+      "sinais_vitais": "PA 110/70 mmHg, FC 95 bpm, FR 16 irpm, Temp 36,5°C, SpO2 97%",
+      "classificacao_risco": "Laranja"
+    }
+  },
+  {
+    "id": 12,
+    "tipo": "triagem",
+    "categoria": "Infectológico",
+    "conteudo": {
+      "queixa_principal": "Paciente com febre alta, dor lombar e calafrios.",
+      "sinais_vitais": "PA 115/75 mmHg, FC 110 bpm, FR 22 irpm, Temp 39,2°C, SpO2 96%",
+      "classificacao_risco": "Amarelo"
+    }
+  },
+  {
+    "id": 13,
+    "tipo": "triagem",
+    "categoria": "Obstétrico",
+    "conteudo": {
+      "queixa_principal": "Gestante com sangramento vaginal no terceiro trimestre.",
+      "sinais_vitais": "PA 130/85 mmHg, FC 100 bpm, FR 18 irpm, Temp 36,6°C, SpO2 97%",
+      "classificacao_risco": "Vermelho"
+    }
+  },
+  {
+    "id": 14,
+    "tipo": "triagem",
+    "categoria": "Psiquiátrico",
+    "conteudo": {
+      "queixa_principal": "Paciente com tentativa de suicídio por overdose medicamentosa.",
+      "sinais_vitais": "PA 100/60 mmHg, FC 120 bpm, FR 24 irpm, Temp 36,4°C, SpO2 92%",
+      "classificacao_risco": "Vermelho"
+    }
+  },
+  {
+    "id": 15,
+    "tipo": "triagem",
+    "categoria": "Neurológico",
+    "conteudo": {
+      "queixa_principal": "Paciente com tontura, náuseas e visão dupla súbita.",
+      "sinais_vitais": "PA 140/90 mmHg, FC 95 bpm, FR 18 irpm, Temp 36,7°C, SpO2 95%",
+      "classificacao_risco": "Laranja"
+    }
+  },
+  {
+    "id": 16,
+    "tipo": "triagem",
+    "categoria": "Pediátrico",
+    "conteudo": {
+      "queixa_principal": "Criança com diarreia intensa e sinais de desidratação.",
+      "sinais_vitais": "PA 85/55 mmHg, FC 140 bpm, FR 35 irpm, Temp 38,0°C, SpO2 94%",
+      "classificacao_risco": "Laranja"
+    }
+  },
+  {
+    "id": 17,
+    "tipo": "triagem",
+    "categoria": "Gastrointestinal",
+    "conteudo": {
+      "queixa_principal": "Paciente com icterícia e dor no hipocôndrio direito.",
+      "sinais_vitais": "PA 125/80 mmHg, FC 90 bpm, FR 18 irpm, Temp 37,2°C, SpO2 97%",
+      "classificacao_risco": "Amarelo"
+    }
+  },
+  {
+    "id": 18,
+    "tipo": "triagem",
+    "categoria": "Trauma",
+    "conteudo": {
+      "queixa_principal": "Paciente com laceração profunda na mão direita por acidente com faca.",
+      "sinais_vitais": "PA 120/80 mmHg, FC 100 bpm, FR 20 irpm, Temp 36,8°C, SpO2 98%",
+      "classificacao_risco": "Laranja"
+    }
+  },
+  {
+    "id": 19,
+    "tipo": "triagem",
+    "categoria": "Cardiológico",
+    "conteudo": {
+      "queixa_principal": "Paciente com palpitações frequentes e sensação de desmaio.",
+      "sinais_vitais": "PA 115/75 mmHg, FC 130 bpm, FR 18 irpm, Temp 36,6°C, SpO2 96%",
+      "classificacao_risco": "Laranja"
+    }
+  },
+  {
+    "id": 20,
+    "tipo": "triagem",
+    "categoria": "Respiratório",
+    "conteudo": {
+      "queixa_principal": "Paciente com crise asmática e dificuldade para respirar.",
+      "sinais_vitais": "PA 125/85 mmHg, FC 110 bpm, FR 30 irpm, Temp 37,0°C, SpO2 89%",
+      "classificacao_risco": "Vermelho"
+    }
+  }
+]

@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "tipo": "laudo",
+    "categoria": "Radiologia",
+    "conteudo": {
+      "exame": "Radiografia de tórax",
+      "resultado": "Não foram identificadas alterações estruturais pulmonares ou mediastinais.",
+      "conclusao": "Exame dentro dos padrões normais, sem evidências de patologias."
+    }
+  },
+  {
+    "id": 2,
+    "tipo": "laudo",
+    "categoria": "Hematologia",
+    "conteudo": {
+      "exame": "Hemograma completo",
+      "resultado": "Contagem de glóbulos vermelhos, brancos e plaquetas dentro dos valores de referência.",
+      "conclusao": "Hemograma sem alterações significativas."
+    }
+  },
+  {
+    "id": 3,
+    "tipo": "laudo",
+    "categoria": "Ginecologia",
+    "conteudo": {
+      "exame": "Ultrassonografia transvaginal",
+      "resultado": "Útero com dimensões normais, endométrio de espessura adequada, ovários sem cistos.",
+      "conclusao": "Exame sem alterações significativas."
+    }
+  },
+  {
+    "id": 4,
+    "tipo": "laudo",
+    "categoria": "Neurologia",
+    "conteudo": {
+      "exame": "Ressonância magnética de crânio",
+      "resultado": "Ausência de lesões focais, ventrículos com morfologia preservada.",
+      "conclusao": "Exame normal, sem sinais de anormalidades."
+    }
+  },
+  {
+    "id": 5,
+    "tipo": "laudo",
+    "categoria": "Cardiologia",
+    "conteudo": {
+      "exame": "Eletrocardiograma",
+      "resultado": "Ritmo sinusal, frequência cardíaca dentro do esperado, ausência de alterações isquêmicas.",
+      "conclusao": "ECG normal."
+    }
+  },
+  {
+    "id": 6,
+    "tipo": "laudo",
+    "categoria": "Ortopedia",
+    "conteudo": {
+      "exame": "Radiografia de joelho direito",
+      "resultado": "Presença de leve redução do espaço articular medial, sem fraturas evidentes.",
+      "conclusao": "Alterações compatíveis com osteoartrite incipiente."
+    }
+  },
+  {
+    "id": 7,
+    "tipo": "laudo",
+    "categoria": "Endocrinologia",
+    "conteudo": {
+      "exame": "Dosagem de TSH e T4 livre",
+      "resultado": "TSH elevado e T4 livre diminuído.",
+      "conclusao": "Quadro sugestivo de hipotireoidismo."
+    }
+  },
+  {
+    "id": 8,
+    "tipo": "laudo",
+    "categoria": "Gastroenterologia",
+    "conteudo": {
+      "exame": "Endoscopia digestiva alta",
+      "resultado": "Mucosa com sinais de esofagite leve, sem úlceras.",
+      "conclusao": "Diagnóstico de esofagite grau A."
+    }
+  },
+  {
+    "id": 9,
+    "tipo": "laudo",
+    "categoria": "Urologia",
+    "conteudo": {
+      "exame": "Ultrassonografia renal",
+      "resultado": "Rins com dimensões normais, sem evidência de cálculos ou hidronefrose.",
+      "conclusao": "Exame sem alterações."
+    }
+  },
+  {
+    "id": 10,
+    "tipo": "laudo",
+    "categoria": "Dermatologia",
+    "conteudo": {
+      "exame": "Biópsia de lesão cutânea",
+      "resultado": "Presença de células atípicas compatíveis com carcinoma basocelular.",
+      "conclusao": "Diagnóstico confirmatório de carcinoma basocelular."
+    }
+  },
+  {
+    "id": 11,
+    "tipo": "laudo",
+    "categoria": "Pneumologia",
+    "conteudo": {
+      "exame": "Teste de função pulmonar",
+      "resultado": "Capacidade pulmonar reduzida, padrão obstrutivo moderado.",
+      "conclusao": "Diagnóstico provável de asma persistente."
+    }
+  },
+  {
+    "id": 12,
+    "tipo": "laudo",
+    "categoria": "Oftalmologia",
+    "conteudo": {
+      "exame": "Fundoscopia",
+      "resultado": "Papila óptica com margens nítidas, retina íntegra.",
+      "conclusao": "Exame dentro da normalidade."
+    }
+  },
+  {
+    "id": 13,
+    "tipo": "laudo",
+    "categoria": "Pediatria",
+    "conteudo": {
+      "exame": "Exame físico geral",
+      "resultado": "Criança com sinais vitais estáveis e desenvolvimento adequado para a idade.",
+      "conclusao": "Sem alterações clínicas."
+    }
+  },
+  {
+    "id": 14,
+    "tipo": "laudo",
+    "categoria": "Psiquiatria",
+    "conteudo": {
+      "exame": "Avaliação clínica",
+      "resultado": "Paciente apresenta sintomas compatíveis com transtorno de ansiedade generalizada.",
+      "conclusao": "Recomenda-se terapia psicológica e acompanhamento psiquiátrico."
+    }
+  },
+  {
+    "id": 15,
+    "tipo": "laudo",
+    "categoria": "Nefrologia",
+    "conteudo": {
+      "exame": "Exames laboratoriais de função renal",
+      "resultado": "Creatinina e ureia levemente elevadas.",
+      "conclusao": "Sinais iniciais de insuficiência renal crônica."
+    }
+  },
+  {
+    "id": 16,
+    "tipo": "laudo",
+    "categoria": "Geriatria",
+    "conteudo": {
+      "exame": "Avaliação geriátrica multidimensional",
+      "resultado": "Declínio leve na cognição e mobilidade preservada.",
+      "conclusao": "Recomenda-se acompanhamento e estímulo cognitivo."
+    }
+  },
+  {
+    "id": 17,
+    "tipo": "laudo",
+    "categoria": "Oncologia",
+    "conteudo": {
+      "exame": "Tomografia computadorizada abdominal",
+      "resultado": "Massa sólida de 3 cm no fígado, sugestiva de neoplasia.",
+      "conclusao": "Necessário seguimento com biópsia para confirmação diagnóstica."
+    }
+  },
+  {
+    "id": 18,
+    "tipo": "laudo",
+    "categoria": "Otorrinolaringologia",
+    "conteudo": {
+      "exame": "Audiometria",
+      "resultado": "Perda auditiva neurossensorial leve em frequências altas.",
+      "conclusao": "Sugere-se avaliação e acompanhamento."
+    }
+  },
+  {
+    "id": 19,
+    "tipo": "laudo",
+    "categoria": "Imunologia",
+    "conteudo": {
+      "exame": "Sorologia para HIV",
+      "resultado": "Teste negativo para anticorpos e antígenos HIV.",
+      "conclusao": "Sem evidências de infecção pelo HIV."
+    }
+  },
+  {
+    "id": 20,
+    "tipo": "laudo",
+    "categoria": "Endocrinologia",
+    "conteudo": {
+      "exame": "Glicemia de jejum",
+      "resultado": "Glicemia de 130 mg/dL.",
+      "conclusao": "Sugere diabetes mellitus, recomenda-se confirmação e manejo adequado."
+    }
+  }
+]
