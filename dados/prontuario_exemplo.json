@@ -1,0 +1,9 @@
+{
+  "paciente_id": "001",
+  "nome": "Paciente Exemplo",
+  "idade": 45,
+  "exames_pendentes": [],
+  "alergias": [],
+  "medicamentos_em_uso": [],
+  "ultima_consulta": null
+}
