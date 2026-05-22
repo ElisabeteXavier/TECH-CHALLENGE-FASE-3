@@ -143,72 +143,175 @@ dados/pdfs/laudos.pdf
 ```
 
 ---
+# 🤖 Assistente Médico com RAG e Validação Humana
 
-# 🤖 Assistente médico (em desenvolvimento)
-
-A lógica principal do assistente está atualmente em:
-
-```text
-notebooks/multi-agentes.ipynb
-```
-
-Tecnologias utilizadas:
-
-- LangChain
-- LangGraph
-- FAISS
-- RAG
-- validação humana
+Sistema de assistência clínica baseado em IA utilizando RAG (Retrieval-Augmented Generation), protocolos hospitalares e validação humana (HITL).
 
 ---
 
-# 🧭 Ordem sugerida de execução
+# 📌 Visão Geral
 
-## 1. Gerar PDFs
+O assistente é executado via CLI interativa:
+
+```bash
+python main.py
+```
+
+O sistema:
+
+- Recupera contexto relevante dos PDFs utilizando RAG
+- Gera sugestões de conduta clínica
+- Solicita validação humana antes da resposta final
+- Utiliza fluxo multiagente com LangGraph
+
+---
+
+# 🧠 Tecnologias Utilizadas
+
+- Python
+- OpenAI
+- Hugging Face
+- LangChain
+- LangGraph
+- FAISS
+- Pandas
+- ReportLab
+- RAG (Retrieval-Augmented Generation)
+- HITL (Human-in-the-Loop)
+
+---
+
+# 🧭 Ordem Sugerida de Execução
+
+## 1. Gerar PDFs e Dados Sintéticos
 
 ```bash
 python gerar_dados.py
 ```
 
+Esse processo irá:
+
+- Gerar datasets médicos sintéticos
+- Criar arquivos JSON
+- Gerar PDFs hospitalares utilizados pelo RAG
+
 ---
 
-## 2. Testar o assistente
+## 2. Executar o Assistente
 
-Abrir:
-
-```text
-notebooks/multi-agentes.ipynb
+```bash
+python main.py
 ```
 
-Pode ser executado:
-- localmente
-- Google Colab
+Digite sua pergunta clínica e o sistema irá:
+
+1. Recuperar contexto dos protocolos hospitalares
+2. Gerar uma sugestão de conduta
+3. Solicitar aprovação humana antes da finalização
 
 ---
 
-## 3. Fine-tuning
+## 3. Fine-Tuning (Opcional)
 
-Notebook:
+Notebook disponível em:
 
 ```text
 notebooks/eda.ipynb
 ```
 
 Responsável:
-- integrante do grupo
+
+```text
+integrante do grupo
+```
 
 ---
 
-# 🧩 Módulos Python
+# 🧩 Estrutura dos Módulos Python
 
 | Arquivo | Responsabilidade |
 |---|---|
-| `gerar_dados.py` | geração de JSON e PDFs |
-| `config.py` | paths e configurações |
-| `rag.py` | embeddings, FAISS e retriever |
-| `agentes.py` | pesquisador, analista e validador |
-| `grafo.py` | fluxo LangGraph |
-| `main.py` | CLI do assistente |
+| `gerar_dados.py` | Geração de JSONs e PDFs |
+| `config.py` | Configurações e paths |
+| `rag.py` | Embeddings, FAISS e retriever |
+| `agentes.py` | Agentes pesquisador, analista e validador |
+| `grafo.py` | Fluxo multiagente com LangGraph |
+| `main.py` | CLI principal do assistente |
+
+---
+
+# 🔍 Funcionamento do Sistema
+
+## Pipeline Geral
+
+```text
+Pergunta do usuário
+        ↓
+Busca vetorial (FAISS)
+        ↓
+Recuperação de contexto dos PDFs
+        ↓
+Análise com LLM
+        ↓
+Sugestão de conduta clínica
+        ↓
+Validação humana (HITL)
+        ↓
+Resposta final
+```
+
+---
+
+# 🧠 Componentes Principais
+
+## 🔹 RAG (Retrieval-Augmented Generation)
+
+O sistema utiliza RAG para recuperar informações relevantes dos protocolos hospitalares antes de gerar respostas.
+
+Fluxo:
+
+- PDFs hospitalares → embeddings
+- Embeddings → índice vetorial FAISS
+- Busca semântica → contexto relevante
+- Contexto → enviado ao modelo de IA
+
+---
+
+## 🔹 Embeddings
+
+Os embeddings podem ser gerados utilizando modelos da Hugging Face ou OpenAI.
+
+Exemplos:
+
+- `sentence-transformers/all-MiniLM-L6-v2`
+- `BAAI/bge-base-en`
+- `text-embedding-3-small`
+
+---
+
+## 🔹 FAISS
+
+Responsável pela indexação vetorial e busca semântica eficiente dos documentos médicos.
+
+---
+
+## 🔹 LangGraph
+
+Coordena o fluxo dos agentes:
+
+- Pesquisador
+- Analista
+- Validador
+
+---
+
+## 🔹 HITL (Human-in-the-Loop)
+
+Antes da resposta final:
+
+- o sistema solicita aprovação humana
+- reduz riscos clínicos
+- aumenta segurança operacional
 
 ---
 
@@ -216,22 +319,107 @@ Responsável:
 
 - Fine-tuning com dados médicos
 - Assistente baseado em protocolos internos
-- Segurança e validação humana
+- Segurança com validação humana
 - Uso de RAG para apoio clínico
-- Código modular em Python
-- Documentação via README
+- Arquitetura modular em Python
+- Documentação técnica via README
 
 ---
 
-# 🧰 Tecnologias
+# 📁 Estrutura Sugerida do Projeto
 
-- Python
-- OpenAI
-- ReportLab
-- LangChain
-- LangGraph
-- Hugging Face
-- FAISS
-- Pandas
+```text
+projeto/
+│
+├── data/
+│   ├── json/
+│   ├── pdfs/
+│   └── vetores/
+│
+├── notebooks/
+│   └── eda.ipynb
+│
+├── gerar_dados.py
+├── config.py
+├── rag.py
+├── agentes.py
+├── grafo.py
+├── main.py
+│
+└── README.md
+```
+
+---
+
+# 🚀 Exemplo de Execução
+
+```bash
+python main.py
+```
+
+### Entrada:
+
+```text
+Paciente com febre, tosse e saturação 89%
+```
+
+### Fluxo:
+
+- Busca protocolos respiratórios
+- Recupera contexto relevante
+- Sugere conduta clínica
+- Solicita validação humana
+
+---
+
+# 🛡️ Segurança
+
+O sistema não substitui profissionais da saúde.
+
+As respostas:
+
+- servem como apoio clínico
+- dependem de validação humana
+- utilizam protocolos institucionais
+
+---
+
+# 📚 Conceitos Utilizados
+
+## RAG
+
+Retrieval-Augmented Generation combina:
+
+- busca semântica
+- recuperação de contexto
+- geração com LLM
+
+---
+
+## Fine-Tuning
+
+Permite especializar o modelo com:
+
+- datasets médicos
+- protocolos clínicos
+- linguagem hospitalar
+
+---
+
+## Busca Vetorial
+
+Utiliza embeddings para encontrar documentos semanticamente semelhantes.
+
+---
+
+# ✅ Resultado Esperado
+
+Um assistente clínico capaz de:
+
+- consultar protocolos hospitalares
+- responder perguntas médicas
+- apoiar decisões clínicas
+- operar com validação humana
+- utilizar arquitetura moderna baseada em IA
 
 ---
