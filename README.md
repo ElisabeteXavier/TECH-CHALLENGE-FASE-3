@@ -1,72 +1,72 @@
-# 🏥 Assistente Médico Inteligente com LLM + LangChain
+# 🏥 Assistente Médico Inteligente — Tech Challenge Fase 3
 
-## 📌 Visão Geral
+Assistente virtual para apoiar condutas clínicas com base em protocolos hospitalares, usando LangChain / LangGraph e RAG.
 
-Este projeto tem como objetivo desenvolver um **assistente virtual médico inteligente**, capaz de apoiar profissionais de saúde na tomada de decisão clínica, utilizando **Modelos de Linguagem (LLMs)** customizados com dados internos hospitalares.
-
-A solução combina:
-- Fine-tuning de modelos de linguagem
-- Orquestração com LangChain / LangGraph
-- Integração com dados clínicos estruturados
-- Camadas de segurança, rastreabilidade e explicabilidade
-
-O sistema **não substitui o médico**, mas atua como um suporte inteligente, fornecendo insights baseados em protocolos e dados clínicos.
+O sistema **não substitui o médico** — inclui validação humana das respostas.
 
 ---
 
-## 🎯 Objetivos
+## 📂 Estrutura do projeto (simples)
 
-- Criar um assistente treinado com dados médicos internos
-- Auxiliar médicos com respostas contextualizadas
-- Sugerir condutas com base em protocolos clínicos
-- Automatizar fluxos de decisão com segurança
+```text
+TECH-CHALLENGE-FASE-3/
+├── README.md
+├── requirements.txt
+├── .env.example
+│
+├── dados/
+│   ├── json/                  # FAQs, protocolos, laudos, receitas...
+│   ├── pdfs/                  # PDFs para o RAG (gerados no notebook)
+│   └── prontuario_exemplo.json
+│
+├── notebooks/
+│   ├── gerar_dados.ipynb      # gera JSON e PDFs
+│   ├── multi-agentes.ipynb    # assistente (RAG + LangGraph)
+│   └── eda.ipynb              # fine-tuning (PubMedQA)
+│
+├── config.py                  # paths e variáveis de ambiente
+├── rag.py                     # embeddings + índice + busca
+├── agentes.py                 # pesquisador, analista, validador
+├── grafo.py                   # monta o fluxo LangGraph
+└── main.py                    # entrada: python main.py
+```
 
----
-
-## 🧠 Arquitetura da Solução
-
-O sistema é composto por três pilares principais:
-
-### 1. Fine-tuning do Modelo
-Treinamento de um LLM com:
-- Protocolos médicos internos
-- Perguntas frequentes (FAQ clínico)
-- Modelos de laudos e prescrições
-
-### 2. Pipeline com LangChain / LangGraph
-- Integração do modelo treinado
-- Consulta a bases estruturadas (prontuários)
-- Construção de fluxos inteligentes de decisão
-
-### 3. Camada de Segurança e Auditoria
-- Controle de limites do modelo
-- Logging completo das interações
-- Explicabilidade das respostas
+Os arquivos `.py` na raiz estão vazios por enquanto — a lógica atual está em `notebooks/multi-agentes.ipynb`. Migre para os `.py` quando quiser rodar pelo terminal.
 
 ---
 
-## 🔄 Fluxo do Sistema
+## 🚀 Como usar (por enquanto)
 
-1. Entrada de dados do paciente  
-2. Consulta a bases clínicas  
-3. Enriquecimento de contexto  
-4. Processamento pela LLM  
-5. Geração de resposta assistida  
-6. Validação humana obrigatória  
-7. Registro (log) da interação  
-
----
-
-## 🧰 Tecnologias Utilizadas
-
-- Python  
-- LangChain  
-- LangGraph  
-- LLMs (LLaMA / Falcon / similares)  
-- Banco de Dados (SQL/NoSQL)  
-- Hugging Face (fine-tuning)  
+1. Crie o ambiente e instale dependências (veja `requirements.txt` quando preenchido).
+2. Copie `.env.example` para `.env` e coloque sua `OPENAI_API_KEY`.
+3. Rode os notebooks na ordem:
+   - `gerar_dados.ipynb` → gera dados em `dados/json` e `dados/pdfs`
+   - `multi-agentes.ipynb` → assistente principal
+   - `eda.ipynb` → fine-tuning (responsável do grupo)
 
 ---
 
-## 📂 Estrutura do Projeto
+## 🧩 O que cada arquivo Python vai fazer
 
+| Arquivo | Função |
+|---------|--------|
+| `config.py` | Caminhos (`dados/json`, `dados/pdfs`) e configurações |
+| `rag.py` | Carregar PDFs, criar FAISS, retriever |
+| `agentes.py` | Nós do grafo (pesquisa, análise, validação humana) |
+| `grafo.py` | Definir e compilar o LangGraph |
+| `main.py` | Executar uma consulta |
+
+---
+
+## 🎯 Objetivos do challenge
+
+- Fine-tuning com dados médicos (notebook `eda.ipynb` + colega do grupo)
+- Assistente com LangChain e dados do hospital
+- Segurança: não prescrever sem validação; citar fontes
+- Código modular em Python + README
+
+---
+
+## 🧰 Tecnologias
+
+Python · LangChain · LangGraph · OpenAI (temporário) · Hugging Face · FAISS
