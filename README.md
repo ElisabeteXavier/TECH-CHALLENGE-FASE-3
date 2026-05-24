@@ -100,6 +100,21 @@ Saída: `dados/externos/docs/rag_hitk_resultados.json` (métricas + detalhe por 
 
 ---
 
+# 🩺 Testes HITL (`testar_hitl.py`)
+
+Valida aprovação/reprovação humana, roteamento do grafo e auditoria (sem API OpenAI):
+
+```bash
+python testar_hitl.py
+python testar_hitl.py --verbose
+```
+
+Cenários: aprovar (`s`), reprovar (`n`), loop analista → validador, e bloqueio de resposta final sem `s`.
+
+Saída: `dados/externos/docs/hitl_testes_resultados.json`.
+
+---
+
 # ⬇️ Baixar dados externos (fine-tuning/avaliação)
 
 Para facilitar o uso por qualquer usuário, existe um comando único para baixar datasets externos em `dados/externos/`.

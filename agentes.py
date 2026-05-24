@@ -1,8 +1,23 @@
 import os
+from collections.abc import Callable
 
 from langchain_openai import ChatOpenAI
 
 from config import LLM_MODEL, MedicalState
+
+# Permite injetar respostas HITL em testes (ex.: "s" / "n") sem input() interativo.
+HitlEntradaProvider = Callable[[MedicalState], str]
+_hitl_entrada_provider: HitlEntradaProvider | None = None
+
+
+def definir_provedor_entrada_hitl(provider: HitlEntradaProvider | None) -> None:
+    """Define função que retorna a confirmação humana; None restaura input() padrão."""
+    global _hitl_entrada_provider
+    _hitl_entrada_provider = provider
+
+
+def obter_provedor_entrada_hitl() -> HitlEntradaProvider | None:
+    return _hitl_entrada_provider
 from logging_auditoria import registrar_auditoria
 from rag import get_retriever, montar_fontes_rag
 
@@ -93,33 +108,40 @@ PERGUNTA:
 
 
 def validar_sugestao(state: MedicalState):
-    print("\n")
-    print("=" * 60)
-    print("REVISÃO MÉDICA NECESSÁRIA")
-    print("=" * 60)
+    provider = _hitl_entrada_provider
+    modo_interativo = provider is None
 
-    if state.get("dados_paciente"):
-        print("\nPRONTUÁRIO:")
-        print(state["dados_paciente"])
+    if modo_interativo:
+        print("\n")
+        print("=" * 60)
+        print("REVISÃO MÉDICA NECESSÁRIA")
+        print("=" * 60)
 
-    alertas = state.get("alertas") or []
-    if alertas:
-        print("\nALERTAS:")
-        for alerta in alertas:
-            print(f"  - {alerta}")
+        if state.get("dados_paciente"):
+            print("\nPRONTUÁRIO:")
+            print(state["dados_paciente"])
 
-    print("\nPERGUNTA:")
-    print(state["pergunta"])
+        alertas = state.get("alertas") or []
+        if alertas:
+            print("\nALERTAS:")
+            for alerta in alertas:
+                print(f"  - {alerta}")
 
-    print("\nSUGESTÃO GERADA:")
-    print(state.get("sugestao_conduta", ""))
+        print("\nPERGUNTA:")
+        print(state["pergunta"])
 
-    if state.get("fontes"):
-        print("\nFONTES (RAG):")
-        print(state["fontes"])
+        print("\nSUGESTÃO GERADA:")
+        print(state.get("sugestao_conduta", ""))
 
-    print("\n")
-    confirmacao = input("Aprovar resposta? (s/n): ")
+        if state.get("fontes"):
+            print("\nFONTES (RAG):")
+            print(state["fontes"])
+
+        print("\n")
+        confirmacao = input("Aprovar resposta? (s/n): ")
+    else:
+        confirmacao = provider(state)
+
     aprovado = confirmacao.strip().lower() == "s"
 
     registrar_auditoria(

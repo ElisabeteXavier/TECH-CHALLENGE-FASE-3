@@ -1,0 +1,100 @@
+{
+  "gerado_em": "2026-05-24T18:16:04.627658+00:00",
+  "total": 9,
+  "passou": 9,
+  "falhou": 0,
+  "casos": [
+    {
+      "id": "hitl_01",
+      "descricao": "Rota condicional → finalizar quando aprovado",
+      "ok": true,
+      "detalhes": {
+        "destino": "finalizar"
+      }
+    },
+    {
+      "id": "hitl_02",
+      "descricao": "Rota condicional → analista quando reprovado",
+      "ok": true,
+      "detalhes": {
+        "destino": "analista"
+      }
+    },
+    {
+      "id": "hitl_03",
+      "descricao": "validar_sugestao com 's' marca aprovado",
+      "ok": true,
+      "detalhes": {
+        "validado_por_humano": true
+      }
+    },
+    {
+      "id": "hitl_04",
+      "descricao": "validar_sugestao com 'n' marca reprovado",
+      "ok": true,
+      "detalhes": {
+        "validado_por_humano": false
+      }
+    },
+    {
+      "id": "hitl_05",
+      "descricao": "Cenário A: aprovação gera resposta final com HITL",
+      "ok": true,
+      "detalhes": {
+        "validado_por_humano": true,
+        "tem_resposta_final": true,
+        "marca_hitl": true
+      }
+    },
+    {
+      "id": "hitl_06",
+      "descricao": "Cenário B: reprovação não gera resposta final",
+      "ok": true,
+      "detalhes": {
+        "validado_por_humano": false,
+        "destino": "analista",
+        "resposta_final": ""
+      }
+    },
+    {
+      "id": "hitl_07",
+      "descricao": "Cenário B+: loop n→s após reanálise",
+      "ok": true,
+      "detalhes": {
+        "ciclos": [
+          {
+            "entrada": "n",
+            "validado": false,
+            "rota": "analista"
+          },
+          {
+            "entrada": "s",
+            "validado": true,
+            "rota": "finalizar"
+          }
+        ],
+        "resposta_gerada": true
+      }
+    },
+    {
+      "id": "hitl_08",
+      "descricao": "Sem aprovação explícita: rota não libera finalização",
+      "ok": true,
+      "detalhes": {
+        "rota": "analista",
+        "exibir_aprovada_main": false
+      }
+    },
+    {
+      "id": "hitl_09",
+      "descricao": "Auditoria JSONL registra validacao_hitl",
+      "ok": true,
+      "detalhes": {
+        "eventos": [
+          "validacao_hitl"
+        ],
+        "aprovado_log": true
+      }
+    }
+  ]
+}
