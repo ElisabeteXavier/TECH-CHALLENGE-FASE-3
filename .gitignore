@@ -51,6 +51,10 @@ faiss_index/
 # =========================================================
 
 dados/pdfs/
+dados/externos/raw/MedQuAD-master/
+dados/externos/raw/medmcqa/
+dados/externos/raw/pubmedqa_pqa_labeled/
+dados/externos/raw/**/*.arrow
 datasets/
 uploads/
 

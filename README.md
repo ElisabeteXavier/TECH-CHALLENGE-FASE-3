@@ -69,6 +69,38 @@ Os PDFs são usados posteriormente no pipeline RAG.
 
 ---
 
+# ⬇️ Baixar dados externos (fine-tuning/avaliação)
+
+Para facilitar o uso por qualquer usuário, existe um comando único para baixar datasets externos em `dados/externos/`.
+
+```bash
+python baixar_dados_externos.py --dataset all
+```
+
+Opções úteis:
+
+```bash
+python baixar_dados_externos.py --dataset medquad
+python baixar_dados_externos.py --dataset pubmedqa
+python baixar_dados_externos.py --dataset medmcqa
+python baixar_dados_externos.py --dataset all --force
+```
+
+Arquivos de saída:
+
+- `dados/externos/raw/medquad.zip`
+- `dados/externos/raw/pubmedqa_ori_pqal.json`
+- `dados/externos/raw/medmcqa/*.jsonl` (quando `datasets` estiver instalado)
+- `dados/externos/raw/download_manifest.json` (status e auditoria do download)
+
+> Observação: para baixar `medmcqa`, pode ser necessário instalar dependência opcional:
+>
+> ```bash
+> pip install datasets
+> ```
+
+---
+
 # ⚙️ Comportamento do script
 
 | Situação | O que acontece |
