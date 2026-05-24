@@ -3,14 +3,18 @@ Gera JSON + PDF dos dados hospitalares sintéticos.
 
 - Se o JSON já existir em dados/json/, usa ele (não chama OpenAI).
 - Se não existir, gera via OpenAI e salva.
+- PDF padrão: texto legível para RAG (sem HTML nem dump JSON).
+- PDF legado (--pdf-json-legacy): formato antigo com JSON embutido.
 
 Uso:
   python gerar_dados.py
   python gerar_dados.py --force          # regera tudo pela API
   python gerar_dados.py --apenas-pdf     # só PDFs a partir dos JSON existentes
+  python melhorar_corpus_dados.py        # ajustes locais nos JSON antes dos PDFs
 """
 
 import argparse
+import html
 import json
 import os
 import sys
@@ -19,7 +23,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import getSampleStyleSheet
-from reportlab.platypus import HRFlowable, Paragraph,Preformatted, SimpleDocTemplate, Spacer
+from reportlab.platypus import HRFlowable, Paragraph, Preformatted, SimpleDocTemplate, Spacer
 
 BASE = Path(__file__).resolve().parent
 PASTA_JSON = BASE / "dados" / "json"
@@ -144,9 +148,119 @@ Formato JSON:
 }
 
 styles = getSampleStyleSheet()
+style_body = styles["BodyText"]
+style_heading = styles["Heading2"]
 
 
-def gerar_pdf(nome: str, dados: list) -> Path:
+def _esc(texto: str) -> str:
+    return html.escape(str(texto or ""), quote=False)
+
+
+def _bloco_registro(item: dict, nome_categoria: str) -> list[str]:
+    """Texto plano por registro, com marcadores para metadados RAG."""
+    rid = item.get("id", "")
+    sub = (item.get("categoria") or "").strip()
+    tipo = item.get("tipo", nome_categoria)
+    c = item.get("conteudo") or {}
+
+    linhas = [
+        f"REGISTRO_ID: {rid}",
+        f"Subcategoria: {sub}",
+        f"Tipo_documento: {tipo}",
+        f"Base_arquivo: {nome_categoria}",
+        "",
+    ]
+
+    if nome_categoria == "faqs":
+        linhas += [
+            f"Pergunta: {c.get('pergunta', '')}",
+            "",
+            f"Resposta: {c.get('resposta', '')}",
+        ]
+    elif nome_categoria == "protocolos":
+        linhas += [
+            f"Protocolo: {c.get('titulo', '')}",
+            "",
+            f"Descricao: {c.get('descricao', '')}",
+            "",
+            f"Conduta: {c.get('conduta', '')}",
+        ]
+    elif nome_categoria == "laudos":
+        linhas += [
+            f"Exame: {c.get('exame', '')}",
+            "",
+            f"Resultado: {c.get('resultado', '')}",
+            "",
+            f"Conclusao: {c.get('conclusao', '')}",
+        ]
+    elif nome_categoria == "receitas":
+        linhas += [
+            f"Medicamento: {c.get('medicamento', '')}",
+            f"Dosagem: {c.get('dosagem', '')}",
+            f"Orientacao: {c.get('orientacao', '')}",
+        ]
+    elif nome_categoria == "triagens":
+        linhas += [
+            f"Queixa principal: {c.get('queixa_principal', '')}",
+            f"Sinais vitais: {c.get('sinais_vitais', '')}",
+            f"Classificacao de risco: {c.get('classificacao_risco', '')}",
+        ]
+    elif nome_categoria == "evolucoes":
+        linhas += [
+            f"Quadro clinico: {c.get('quadro_clinico', '')}",
+            "",
+            f"Conduta: {c.get('conduta', '')}",
+            "",
+            f"Observacao: {c.get('observacao', '')}",
+        ]
+    else:
+        for chave, valor in c.items():
+            linhas.append(f"{chave}: {valor}")
+
+    linhas.append("")
+    linhas.append("---")
+    linhas.append("")
+    return linhas
+
+
+def gerar_pdf_legivel(nome: str, dados: list) -> Path:
+    PASTA_PDF.mkdir(parents=True, exist_ok=True)
+    pdf_path = PASTA_PDF / f"{nome}.pdf"
+
+    pdf = SimpleDocTemplate(
+        str(pdf_path),
+        pagesize=A4,
+        rightMargin=40,
+        leftMargin=40,
+        topMargin=40,
+        bottomMargin=40,
+    )
+
+    elementos = [
+        Paragraph(f"<b>Documentos hospitalares — {nome.upper()}</b>", styles["Title"]),
+        Paragraph(
+            "Corpus sintético para RAG. Cada bloco contém REGISTRO_ID e Subcategoria.",
+            style_body,
+        ),
+        Spacer(1, 16),
+    ]
+
+    for item in dados:
+        texto_plano = "\n".join(_bloco_registro(item, nome))
+        # Um parágrafo por registro (texto escapado, sem tags HTML no conteúdo)
+        bloco_html = "<br/>".join(_esc(linha) for linha in texto_plano.split("\n"))
+        elementos.append(Paragraph(bloco_html, style_body))
+        elementos.append(Spacer(1, 10))
+        elementos.append(HRFlowable(width="100%"))
+        elementos.append(Spacer(1, 10))
+
+    pdf.build(elementos)
+    print(f"  PDF legível salvo: {pdf_path}")
+    return pdf_path
+
+
+def gerar_pdf_json_legacy(nome: str, dados: list) -> Path:
+    """Formato antigo (JSON cru + tags HTML) — não recomendado para RAG."""
     PASTA_PDF.mkdir(parents=True, exist_ok=True)
     pdf_path = PASTA_PDF / f"{nome}.pdf"
 
@@ -172,14 +286,20 @@ def gerar_pdf(nome: str, dados: list) -> Path:
         <b>Conteúdo:</b><br/><br/>
         {json.dumps(item.get("conteudo"), ensure_ascii=False, indent=2)}
         """
-        elementos.append(Preformatted(texto,styles["Code"]))
+        elementos.append(Preformatted(texto, styles["Code"]))
         elementos.append(Spacer(1, 12))
         elementos.append(HRFlowable(width="100%"))
         elementos.append(Spacer(1, 12))
 
     pdf.build(elementos)
-    print(f"  PDF salvo: {pdf_path}")
+    print(f"  PDF legado (JSON) salvo: {pdf_path}")
     return pdf_path
+
+
+def gerar_pdf(nome: str, dados: list, legivel: bool = True) -> Path:
+    if legivel:
+        return gerar_pdf_legivel(nome, dados)
+    return gerar_pdf_json_legacy(nome, dados)
 
 
 def carregar_json(categoria: str) -> list:
@@ -199,7 +319,7 @@ def salvar_json(categoria: str, dados: list) -> Path:
 
 def gerar_json_openai(categoria: str, client) -> list:
     prompt = PROMPTS[categoria]
-    print(f"  Chamando OpenAI para gerar JSON...")
+    print("  Chamando OpenAI para gerar JSON...")
 
     response = client.chat.completions.create(
         model=os.getenv("OPENAI_MODEL", "gpt-4o-mini"),
@@ -212,7 +332,13 @@ def gerar_json_openai(categoria: str, client) -> list:
     return json.loads(conteudo)
 
 
-def processar_categoria(categoria: str, client, force: bool, apenas_pdf: bool) -> None:
+def processar_categoria(
+    categoria: str,
+    client,
+    force: bool,
+    apenas_pdf: bool,
+    pdf_legivel: bool,
+) -> None:
     print(f"\n[{categoria}]")
     json_path = PASTA_JSON / f"{categoria}.json"
     json_existe = json_path.is_file() and json_path.stat().st_size > 0
@@ -222,23 +348,23 @@ def processar_categoria(categoria: str, client, force: bool, apenas_pdf: bool) -
             print(f"  Pulando: JSON não encontrado em {json_path}")
             return
         dados = carregar_json(categoria)
-        print(f"  JSON já existia — gerando só PDF")
-        gerar_pdf(categoria, dados)
+        print("  JSON já existia — gerando só PDF")
+        gerar_pdf(categoria, dados, legivel=pdf_legivel)
         return
 
     if json_existe and not force:
         dados = carregar_json(categoria)
-        print(f"  JSON já existia — usando arquivo local (sem OpenAI)")
+        print("  JSON já existia — usando arquivo local (sem OpenAI)")
     else:
         if force and json_existe:
-            print(f"  --force: regerando JSON via OpenAI")
+            print("  --force: regerando JSON via OpenAI")
         if client is None:
             print("  ERRO: JSON não existe e OPENAI_API_KEY não configurada.")
             sys.exit(1)
         dados = gerar_json_openai(categoria, client)
         salvar_json(categoria, dados)
 
-    gerar_pdf(categoria, dados)
+    gerar_pdf(categoria, dados, legivel=pdf_legivel)
 
 
 def main():
@@ -253,26 +379,38 @@ def main():
         action="store_true",
         help="Só gera PDFs a partir dos JSON em dados/json/",
     )
+    parser.add_argument(
+        "--pdf-json-legacy",
+        action="store_true",
+        help="Usa formato antigo de PDF (HTML + JSON embutido)",
+    )
     args = parser.parse_args()
 
     load_dotenv()
     PASTA_JSON.mkdir(parents=True, exist_ok=True)
     PASTA_PDF.mkdir(parents=True, exist_ok=True)
 
+    pdf_legivel = not args.pdf_json_legacy
+
     client = None
     if not args.apenas_pdf:
         api_key = os.getenv("OPENAI_API_KEY")
         if api_key:
             from openai import OpenAI
+
             client = OpenAI(api_key=api_key)
         elif args.force:
             print("ERRO: --force exige OPENAI_API_KEY no .env")
             sys.exit(1)
 
     for categoria in CATEGORIAS:
-        processar_categoria(categoria, client, args.force, args.apenas_pdf)
+        processar_categoria(
+            categoria, client, args.force, args.apenas_pdf, pdf_legivel
+        )
 
     print("\nFINALIZADO.")
+    if pdf_legivel:
+        print("PDFs no formato legível para RAG. Após alterações: python rebuild_rag_index.py --force")
 
 
 if __name__ == "__main__":

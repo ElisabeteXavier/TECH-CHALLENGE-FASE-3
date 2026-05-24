@@ -3,9 +3,17 @@
     "paciente_id": "P001",
     "nome": "Paciente Exemplo Silva",
     "idade": 58,
-    "alergias": ["dipirona"],
-    "medicamentos_em_uso": ["losartana 50mg", "metformina 850mg"],
-    "exames_pendentes": ["hemograma completo", "raio-x de tórax"],
+    "alergias": [
+      "dipirona"
+    ],
+    "medicamentos_em_uso": [
+      "losartana 50mg",
+      "metformina 850mg"
+    ],
+    "exames_pendentes": [
+      "hemograma completo",
+      "raio-x de tórax"
+    ],
     "sinais_vitais": {
       "spo2": 89,
       "febre": true,
@@ -22,8 +30,95 @@
     "exames_pendentes": [],
     "sinais_vitais": {
       "spo2": 98,
-      "febre": false
+      "febre": false,
+      "pressao": "118/76"
     },
     "ultima_consulta": "2026-05-18"
+  },
+  {
+    "paciente_id": "P003",
+    "nome": "Paciente Exemplo Souza",
+    "idade": 8,
+    "alergias": [
+      "penicilina"
+    ],
+    "medicamentos_em_uso": [
+      "salbutamol spray"
+    ],
+    "exames_pendentes": [
+      "radiografia de tórax"
+    ],
+    "sinais_vitais": {
+      "spo2": 91,
+      "febre": true,
+      "pressao": "95/60"
+    },
+    "ultima_consulta": "2026-05-22",
+    "observacoes": "Criança com histórico de asma; risco respiratório em exacerbação."
+  },
+  {
+    "paciente_id": "P004",
+    "nome": "Paciente Exemplo Lima",
+    "idade": 45,
+    "alergias": [
+      "dipirona",
+      "penicilina",
+      "contraste iodado"
+    ],
+    "medicamentos_em_uso": [
+      "omeprazol 20mg"
+    ],
+    "exames_pendentes": [
+      "tomografia abdominal"
+    ],
+    "sinais_vitais": {
+      "spo2": 97,
+      "febre": false,
+      "pressao": "125/82"
+    },
+    "ultima_consulta": "2026-05-21",
+    "observacoes": "Múltiplas alergias medicamentosas — revisar prescrição antes de HITL."
+  },
+  {
+    "paciente_id": "P005",
+    "nome": "Paciente Exemplo Mendes",
+    "idade": 72,
+    "alergias": [],
+    "medicamentos_em_uso": [
+      "enalapril 10mg",
+      "AAS 100mg"
+    ],
+    "exames_pendentes": [
+      "eletrocardiograma",
+      "BNP"
+    ],
+    "sinais_vitais": {
+      "spo2": 88,
+      "febre": false,
+      "pressao": "150/95"
+    },
+    "ultima_consulta": "2026-05-23",
+    "observacoes": "Idoso com dispneia e SpO2 limítrofe; priorizar avaliação cardiopulmonar."
+  },
+  {
+    "paciente_id": "P006",
+    "nome": "Paciente Exemplo Ribeiro",
+    "idade": 29,
+    "alergias": [
+      "látex"
+    ],
+    "medicamentos_em_uso": [
+      "sulfato ferroso"
+    ],
+    "exames_pendentes": [
+      "ultrassom obstétrico"
+    ],
+    "sinais_vitais": {
+      "spo2": 99,
+      "febre": false,
+      "pressao": "110/70"
+    },
+    "ultima_consulta": "2026-05-24",
+    "observacoes": "Gestante 32 semanas; triagem obstétrica se queixa de sangramento."
   }
 ]

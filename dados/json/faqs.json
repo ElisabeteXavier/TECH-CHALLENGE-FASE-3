@@ -268,5 +268,32 @@
       "pergunta": "Posso solicitar transferência para outro hospital durante a internação?",
       "resposta": "Sim, mediante avaliação médica e disponibilidade, a transferência pode ser solicitada para continuidade ou adequação do tratamento."
     }
+  },
+  {
+    "id": 31,
+    "tipo": "faq",
+    "categoria": "Prontuário Médico",
+    "conteudo": {
+      "pergunta": "O que e prontuario medico e qual sua importancia?",
+      "resposta": "O prontuário médico (prontuario medico) é o registro clínico completo do atendimento, essencial para continuidade do cuidado, segurança e auditoria hospitalar."
+    }
+  },
+  {
+    "id": 32,
+    "tipo": "faq",
+    "categoria": "Admissão Hospitalar",
+    "conteudo": {
+      "pergunta": "Quais documentos sao necessarios para admissao hospitalar?",
+      "resposta": "Para admissao hospitalar são necessários documento de identificação, cartão do plano de saúde quando houver, encaminhamento médico e exames prévios disponíveis."
+    }
+  },
+  {
+    "id": 33,
+    "tipo": "faq",
+    "categoria": "Exames e Diagnósticos",
+    "conteudo": {
+      "pergunta": "Como obter resultados de exames no hospital?",
+      "resposta": "Os resultados de exames podem ser retirados no setor responsável ou acessados pelo portal do paciente, conforme política institucional."
+    }
   }
 ]

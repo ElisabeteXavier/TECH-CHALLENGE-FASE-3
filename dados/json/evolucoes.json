@@ -2,9 +2,9 @@
   {
     "id": 1,
     "tipo": "evolucao",
-    "categoria": "clínica geral",
+    "categoria": "Clínica Geral",
     "conteudo": {
-      "quadro_clinico": "Paciente apresenta dor abdominal difusa, febre 38,5°C e sinais de desidratação leve.",
+      "quadro_clinico": "Evolução: dor abdominal difusa, febre 38,5°C e sinais de desidratação leve.",
       "conduta": "Iniciar hidratação venosa com soro fisiológico 0,9% 1L em 2 horas, solicitar exames laboratoriais e ultrassonografia abdominal.",
       "observacao": "Monitorar sinais vitais a cada 4 horas e avaliar resposta ao tratamento."
     }
@@ -12,9 +12,9 @@
   {
     "id": 2,
     "tipo": "evolucao",
-    "categoria": "cardiologia",
+    "categoria": "Cardiologia",
     "conteudo": {
-      "quadro_clinico": "Paciente apresenta dispneia aos esforços, edema em membros inferiores e pressão arterial 160/100 mmHg.",
+      "quadro_clinico": "Quadro: dispneia aos esforços, edema em membros inferiores e pressão arterial 160/100 mmHg.",
       "conduta": "Iniciar diurético (furosemida 40 mg VO), controlar pressão arterial com IECA e solicitar ecocardiograma.",
       "observacao": "Acompanhar balanço hídrico e peso corporal diariamente."
     }
@@ -22,9 +22,9 @@
   {
     "id": 3,
     "tipo": "evolucao",
-    "categoria": "infectologia",
+    "categoria": "Infectologia",
     "conteudo": {
-      "quadro_clinico": "Paciente com quadro de tosse produtiva, febre 39°C e infiltrado pulmonar em radiografia.",
+      "quadro_clinico": "Relato clínico: quadro de tosse produtiva, febre 39°C e infiltrado pulmonar em radiografia.",
       "conduta": "Iniciar antibioticoterapia empírica com amoxicilina-clavulanato, realizar coleta para cultura de escarro.",
       "observacao": "Avaliar resposta ao tratamento em 48 horas e ajustar antibioticoterapia conforme cultura."
     }
@@ -32,9 +32,9 @@
   {
     "id": 4,
     "tipo": "evolucao",
-    "categoria": "neurologia",
+    "categoria": "Neurologia",
     "conteudo": {
-      "quadro_clinico": "Paciente com cefaleia intensa, rigidez de nuca e fotofobia.",
+      "quadro_clinico": "Evolução: cefaleia intensa, rigidez de nuca e fotofobia.",
       "conduta": "Solicitar punção lombar, iniciar antibioticoterapia empírica para meningite bacteriana.",
       "observacao": "Monitorar estado neurológico a cada 2 horas e manter paciente em ambiente calmo e escuro."
     }
@@ -42,9 +42,9 @@
   {
     "id": 5,
     "tipo": "evolucao",
-    "categoria": "pneumologia",
+    "categoria": "Pneumologia",
     "conteudo": {
-      "quadro_clinico": "Paciente com dispneia progressiva, tosse seca e saturação de oxigênio 88%.",
+      "quadro_clinico": "Quadro: dispneia progressiva, tosse seca e saturação de oxigênio 88%.",
       "conduta": "Iniciar oxigenoterapia via cateter nasal, solicitar gasometria arterial e radiografia de tórax.",
       "observacao": "Monitorar saturação e sinais de insuficiência respiratória."
     }
@@ -52,9 +52,9 @@
   {
     "id": 6,
     "tipo": "evolucao",
-    "categoria": "endocrinologia",
+    "categoria": "Endocrinologia",
     "conteudo": {
-      "quadro_clinico": "Paciente diabético com glicemia capilar de 320 mg/dL, sinais de desidratação e poliúria.",
+      "quadro_clinico": "Relato clínico: Diabético com glicemia capilar de 320 mg/dL, sinais de desidratação e poliúria.",
       "conduta": "Iniciar hidratação venosa, ajuste da insulinoterapia e monitorar eletrólitos.",
       "observacao": "Avaliar melhora clínica e controle glicêmico a cada 4 horas."
     }
@@ -62,9 +62,9 @@
   {
     "id": 7,
     "tipo": "evolucao",
-    "categoria": "cirurgia geral",
+    "categoria": "Cirurgia Geral",
     "conteudo": {
-      "quadro_clinico": "Pós-operatório de apendicectomia, paciente com dor localizada no sítio cirúrgico e sinais de infecção local.",
+      "quadro_clinico": "Evolução: Pós-operatório de apendicectomia, paciente com dor localizada no sítio cirúrgico e sinais de infecção local.",
       "conduta": "Iniciar antibioticoterapia, realizar curativos diários e solicitar hemograma.",
       "observacao": "Observar sinais de complicações sistêmicas e evolução da dor."
     }
@@ -72,9 +72,9 @@
   {
     "id": 8,
     "tipo": "evolucao",
-    "categoria": "nefrologia",
+    "categoria": "Nefrologia",
     "conteudo": {
-      "quadro_clinico": "Paciente com edema generalizado, creatinina elevada e redução do volume urinário.",
+      "quadro_clinico": "Quadro: edema generalizado, creatinina elevada e redução do volume urinário.",
       "conduta": "Ajustar diuréticos, controlar ingestão hídrica e solicitar exames de função renal.",
       "observacao": "Monitorar balanço hídrico e eletrólitos diariamente."
     }
@@ -82,9 +82,9 @@
   {
     "id": 9,
     "tipo": "evolucao",
-    "categoria": "ginecologia",
+    "categoria": "Ginecologia",
     "conteudo": {
-      "quadro_clinico": "Paciente com dor pélvica, febre e leucocitose.",
+      "quadro_clinico": "Relato clínico: dor pélvica, febre e leucocitose.",
       "conduta": "Iniciar antibioticoterapia para pelviperitonite, realizar ultrassonografia pélvica.",
       "observacao": "Monitorar evolução clínica e sinais vitais a cada 6 horas."
     }
@@ -92,9 +92,9 @@
   {
     "id": 10,
     "tipo": "evolucao",
-    "categoria": "pediatria",
+    "categoria": "Pediatria",
     "conteudo": {
-      "quadro_clinico": "Criança com quadro de diarreia aguda, febre e sinais de desidratação moderada.",
+      "quadro_clinico": "Evolução: Criança com quadro de diarreia aguda, febre e sinais de desidratação moderada.",
       "conduta": "Iniciar reidratação oral, manter dieta adequada e monitorar eliminação fecal.",
       "observacao": "Avaliar sinais de desidratação a cada 2 horas e orientar cuidados domiciliares."
     }
@@ -102,9 +102,9 @@
   {
     "id": 11,
     "tipo": "evolucao",
-    "categoria": "ortopedia",
+    "categoria": "Ortopedia",
     "conteudo": {
-      "quadro_clinico": "Paciente com dor intensa e edema em torno do tornozelo após trauma recente.",
+      "quadro_clinico": "Quadro: dor intensa e edema em torno do tornozelo após trauma recente.",
       "conduta": "Imobilizar membro afetado, aplicar gelo local e solicitar radiografia para avaliação de fratura.",
       "observacao": "Orientar repouso e analgesia conforme necessidade."
     }
@@ -112,9 +112,9 @@
   {
     "id": 12,
     "tipo": "evolucao",
-    "categoria": "hematologia",
+    "categoria": "Hematologia",
     "conteudo": {
-      "quadro_clinico": "Paciente com palidez, fadiga e hemograma indicando anemia severa.",
+      "quadro_clinico": "Relato clínico: palidez, fadiga e hemograma indicando anemia severa.",
       "conduta": "Investigar causa da anemia, iniciar transfusão sanguínea se necessário e suplementação de ferro.",
       "observacao": "Monitorar sinais vitais e repetir hemograma após 48 horas."
     }
@@ -122,9 +122,9 @@
   {
     "id": 13,
     "tipo": "evolucao",
-    "categoria": "dermatologia",
+    "categoria": "Dermatologia",
     "conteudo": {
-      "quadro_clinico": "Paciente com lesões cutâneas eritematosas e pruriginosas disseminadas.",
+      "quadro_clinico": "Evolução: lesões cutâneas eritematosas e pruriginosas disseminadas.",
       "conduta": "Iniciar tratamento tópico com corticosteroide e anti-histamínico oral.",
       "observacao": "Avaliar resposta ao tratamento em 7 dias e orientar evitar agentes irritativos."
     }
@@ -132,9 +132,9 @@
   {
     "id": 14,
     "tipo": "evolucao",
-    "categoria": "gastroenterologia",
+    "categoria": "Gastroenterologia",
     "conteudo": {
-      "quadro_clinico": "Paciente com queixa de dor epigástrica e náuseas, endoscopia revela gastrite erosiva.",
+      "quadro_clinico": "Quadro: queixa de dor epigástrica e náuseas, endoscopia revela gastrite erosiva.",
       "conduta": "Iniciar inibidor de bomba de prótons e dieta leve.",
       "observacao": "Orientar evitar álcool e anti-inflamatórios."
     }
@@ -142,9 +142,9 @@
   {
     "id": 15,
     "tipo": "evolucao",
-    "categoria": "psiquiatria",
+    "categoria": "Psiquiatria",
     "conteudo": {
-      "quadro_clinico": "Paciente apresenta quadro de ansiedade generalizada com insônia e irritabilidade.",
+      "quadro_clinico": "Relato clínico: quadro de ansiedade generalizada com insônia e irritabilidade.",
       "conduta": "Iniciar terapia medicamentosa com ansiolíticos e encaminhar para psicoterapia.",
       "observacao": "Avaliar resposta ao tratamento em 2 semanas."
     }
@@ -152,9 +152,9 @@
   {
     "id": 16,
     "tipo": "evolucao",
-    "categoria": "urologia",
+    "categoria": "Urologia",
     "conteudo": {
-      "quadro_clinico": "Paciente com dor lombar e hematúria de início súbito.",
+      "quadro_clinico": "Evolução: dor lombar e hematúria de início súbito.",
       "conduta": "Solicitar ultrassonografia renal e urinálise, iniciar analgesia e hidratação.",
       "observacao": "Monitorar evolução da dor e sinais de infecção urinária."
     }
@@ -162,9 +162,9 @@
   {
     "id": 17,
     "tipo": "evolucao",
-    "categoria": "pediatria",
+    "categoria": "Pediatria",
     "conteudo": {
-      "quadro_clinico": "Recém-nascido com icterícia progressiva e exames laboratoriais mostrando bilirrubina elevada.",
+      "quadro_clinico": "Quadro: Recém-nascido com icterícia progressiva e exames laboratoriais mostrando bilirrubina elevada.",
       "conduta": "Iniciar fototerapia e monitorar níveis de bilirrubina.",
       "observacao": "Avaliar necessidade de exsanguineotransfusão se níveis ultrapassarem limites."
     }
@@ -172,9 +172,9 @@
   {
     "id": 18,
     "tipo": "evolucao",
-    "categoria": "reumatologia",
+    "categoria": "Reumatologia",
     "conteudo": {
-      "quadro_clinico": "Paciente com dor articular simétrica e rigidez matinal prolongada.",
+      "quadro_clinico": "Relato clínico: dor articular simétrica e rigidez matinal prolongada.",
       "conduta": "Solicitar exames laboratoriais para fator reumatoide, iniciar anti-inflamatórios.",
       "observacao": "Encaminhar para avaliação reumatológica especializada."
     }
@@ -182,9 +182,9 @@
   {
     "id": 19,
     "tipo": "evolucao",
-    "categoria": "endocrinologia",
+    "categoria": "Endocrinologia",
     "conteudo": {
-      "quadro_clinico": "Paciente com ganância, sudorese e palpitações frequentes.",
+      "quadro_clinico": "Evolução: ganância, sudorese e palpitações frequentes.",
       "conduta": "Solicitar dosagem de glicemia capilar e exames hormonais, ajustar dieta e medicamento conforme resultados.",
       "observacao": "Acompanhar sintomas e glicemia em horário pré-determinado."
     }
@@ -192,9 +192,9 @@
   {
     "id": 20,
     "tipo": "evolucao",
-    "categoria": "oncologia",
+    "categoria": "Oncologia",
     "conteudo": {
-      "quadro_clinico": "Paciente em quimioterapia apresenta queda de leucócitos e febre 38,9°C.",
+      "quadro_clinico": "Quadro: Paciente em quimioterapia apresenta queda de leucócitos e febre 38,9°C.",
       "conduta": "Iniciar antibioticoterapia empírica, monitorar contagem leucocitária e estado geral.",
       "observacao": "Isolar paciente para evitar infecções oportunistas."
     }

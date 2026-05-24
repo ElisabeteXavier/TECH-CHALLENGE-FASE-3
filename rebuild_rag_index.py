@@ -24,6 +24,8 @@ def _imprimir_stats(stats: dict) -> None:
     print(f"Chunks (após split): {stats['chunks_apos_split']}")
     print(f"Vetores no FAISS:    {stats['vetores_no_faiss']}")
     print(f"Chunks com JSON par: {stats['chunks_com_json_origem']}")
+    if "chunks_com_subcategoria" in stats:
+        print(f"Chunks com subcategoria: {stats['chunks_com_subcategoria']}")
     print(f"Embedding:           {stats['embedding_model']}")
     print(f"Busca:               {stats['rag_search_type']} (k={stats['rag_k']}, fetch_k={stats['rag_fetch_k']})")
     print("\nChunks por categoria:")

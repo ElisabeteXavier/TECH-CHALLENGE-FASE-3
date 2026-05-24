@@ -1,5 +1,6 @@
 """Embeddings, índice FAISS e retriever."""
 
+import re
 import shutil
 from pathlib import Path
 
@@ -95,18 +96,42 @@ def _enriquecer_metadata_pagina(doc, caminho: str) -> None:
     doc.metadata["tipo"] = "documento_medico"
 
 
+_RE_REGISTRO_ID = re.compile(r"REGISTRO_ID:\s*(\d+)", re.IGNORECASE)
+_RE_SUBCATEGORIA = re.compile(r"Subcategoria:\s*(.+?)(?:\n|$)", re.IGNORECASE)
+
+
+def _extrair_metadados_do_texto(doc) -> None:
+    """Lê marcadores dos PDFs legíveis (gerar_dados.py) e enriquece o chunk."""
+    texto = doc.page_content or ""
+    match_id = _RE_REGISTRO_ID.search(texto)
+    if match_id:
+        doc.metadata["registro_id"] = match_id.group(1)
+    match_sub = _RE_SUBCATEGORIA.search(texto)
+    if match_sub:
+        doc.metadata["subcategoria"] = match_sub.group(1).strip()
+
+
 def _atribuir_chunk_ids(chunks: list) -> list:
     """Identificador estável por categoria após o split."""
     contadores: dict[str, int] = {}
     for doc in chunks:
+        _extrair_metadados_do_texto(doc)
         categoria = doc.metadata.get("categoria", "doc")
-        indice = contadores.get(categoria, 0)
-        doc.metadata["chunk_id"] = f"{categoria}_{indice:04d}"
-        contadores[categoria] = indice + 1
+        registro_id = doc.metadata.get("registro_id")
+        if registro_id is not None:
+            doc.metadata["chunk_id"] = f"{categoria}_{int(registro_id):04d}"
+        else:
+            indice = contadores.get(categoria, 0)
+            doc.metadata["chunk_id"] = f"{categoria}_{indice:04d}"
+            contadores[categoria] = indice + 1
+            continue
+        contadores[categoria] = contadores.get(categoria, 0) + 1
     return chunks
 
 
-CABECALHO_FONTES_PADRAO = "arquivo | categoria | pagina | chunk_id | tipo_fonte"
+CABECALHO_FONTES_PADRAO = (
+    "arquivo | categoria | subcategoria | pagina | chunk_id | tipo_fonte"
+)
 
 
 def formatar_fonte_metadata(metadata: dict) -> str:
@@ -117,9 +142,11 @@ def formatar_fonte_metadata(metadata: dict) -> str:
     tipo = metadata.get("tipo_fonte", "?")
     if metadata.get("json_origem"):
         tipo = f"{tipo}+json"
+    sub = metadata.get("subcategoria") or "-"
     return (
         f"{arquivo} | "
         f"{metadata.get('categoria', '?')} | "
+        f"{sub} | "
         f"p.{metadata.get('pagina', '?')} | "
         f"{metadata.get('chunk_id', '?')} | "
         f"{tipo}"
@@ -136,6 +163,8 @@ def registro_fonte_de_metadata(metadata: dict) -> dict:
     return {
         "fonte_arquivo": arquivo,
         "categoria": metadata.get("categoria", ""),
+        "subcategoria": metadata.get("subcategoria", ""),
+        "registro_id": metadata.get("registro_id", ""),
         "pagina": metadata.get("pagina", 0),
         "chunk_id": metadata.get("chunk_id", ""),
         "tipo_fonte": tipo_fonte,
@@ -239,11 +268,14 @@ def estatisticas_indice(caminhos_pdfs: list[str] | None = None) -> dict:
 
     por_categoria: dict[str, int] = {}
     com_json_origem = 0
+    com_subcategoria = 0
     for chunk in chunks:
         cat = chunk.metadata.get("categoria", "desconhecida")
         por_categoria[cat] = por_categoria.get(cat, 0) + 1
         if chunk.metadata.get("json_origem"):
             com_json_origem += 1
+        if chunk.metadata.get("subcategoria"):
+            com_subcategoria += 1
 
     vetores = 0
     indice_existe = _indice_persistido_existe()
@@ -257,6 +289,7 @@ def estatisticas_indice(caminhos_pdfs: list[str] | None = None) -> dict:
         "chunks_apos_split": len(chunks),
         "vetores_no_faiss": vetores,
         "chunks_com_json_origem": com_json_origem,
+        "chunks_com_subcategoria": com_subcategoria,
         "por_categoria": por_categoria,
         "embedding_model": EMBEDDING_MODEL,
         "rag_search_type": RAG_SEARCH_TYPE,

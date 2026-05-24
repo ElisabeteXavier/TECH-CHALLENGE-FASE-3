@@ -1,7 +1,7 @@
 {
   "total_casos": 10,
   "metricas": {
-    "hit@1": 1.0,
+    "hit@1": 0.9,
     "hit@3": 1.0,
     "hit@5": 1.0
   },
@@ -12,9 +12,9 @@
       "categoria_esperada": "protocolos",
       "categorias_top": [
         "protocolos",
-        "evolucoes",
-        "faqs",
+        "protocolos",
         "triagens",
+        "faqs",
         "protocolos"
       ],
       "hits": {
@@ -29,10 +29,10 @@
       "categoria_esperada": "faqs",
       "categorias_top": [
         "faqs",
-        "evolucoes",
+        "triagens",
         "laudos",
         "faqs",
-        "protocolos"
+        "faqs"
       ],
       "hits": {
         "hit@1": true,
@@ -46,9 +46,9 @@
       "categoria_esperada": "triagens",
       "categorias_top": [
         "triagens",
-        "evolucoes",
         "protocolos",
-        "laudos",
+        "evolucoes",
+        "faqs",
         "triagens"
       ],
       "hits": {
@@ -64,9 +64,9 @@
       "categorias_top": [
         "receitas",
         "evolucoes",
+        "triagens",
         "protocolos",
-        "evolucoes",
-        "triagens"
+        "receitas"
       ],
       "hits": {
         "hit@1": true,
@@ -80,10 +80,10 @@
       "categoria_esperada": "laudos",
       "categorias_top": [
         "laudos",
-        "evolucoes",
         "triagens",
-        "laudos",
-        "evolucoes"
+        "protocolos",
+        "evolucoes",
+        "laudos"
       ],
       "hits": {
         "hit@1": true,
@@ -97,10 +97,10 @@
       "categoria_esperada": "evolucoes",
       "categorias_top": [
         "evolucoes",
-        "laudos",
-        "receitas",
+        "triagens",
         "evolucoes",
-        "evolucoes"
+        "protocolos",
+        "receitas"
       ],
       "hits": {
         "hit@1": true,
@@ -115,8 +115,8 @@
       "categorias_top": [
         "protocolos",
         "evolucoes",
-        "receitas",
         "triagens",
+        "receitas",
         "evolucoes"
       ],
       "hits": {
@@ -132,9 +132,9 @@
       "categorias_top": [
         "faqs",
         "evolucoes",
-        "laudos",
         "protocolos",
-        "faqs"
+        "laudos",
+        "triagens"
       ],
       "hits": {
         "hit@1": true,
@@ -149,8 +149,8 @@
       "categorias_top": [
         "laudos",
         "evolucoes",
-        "protocolos",
         "triagens",
+        "protocolos",
         "evolucoes"
       ],
       "hits": {
@@ -164,20 +164,20 @@
       "pergunta": "Paciente com dispneia edema e pressao arterial elevada cardiologia",
       "categoria_esperada": "evolucoes",
       "categorias_top": [
+        "triagens",
         "evolucoes",
         "protocolos",
-        "laudos",
-        "triagens",
-        "receitas"
+        "receitas",
+        "laudos"
       ],
       "hits": {
-        "hit@1": true,
+        "hit@1": false,
         "hit@3": true,
         "hit@5": true
       }
     }
   ],
-  "gerado_em": "2026-05-24T18:06:35.547677+00:00",
+  "gerado_em": "2026-05-24T18:33:17.540789+00:00",
   "config": {
     "rag_k": 5,
     "rag_search_type": "mmr",

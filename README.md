@@ -61,14 +61,31 @@ EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
 
 ---
 
-# 📊 Gerar dados (`gerar_dados.py`)
+# 📊 Gerar e melhorar dados
 
-Script responsável por preparar os dados hospitalares sintéticos em:
+## `melhorar_corpus_dados.py`
 
-- JSON
-- PDF
+Ajustes locais nos JSON (sem OpenAI): capitalização, redação variada em triagens/evoluções, FAQs sem acento, prontuário ampliado.
 
-Os PDFs são usados posteriormente no pipeline RAG.
+```bash
+python melhorar_corpus_dados.py
+```
+
+## `gerar_dados.py`
+
+Prepara JSON + PDF. **Padrão:** PDF legível para RAG (prosa + marcadores `REGISTRO_ID` / `Subcategoria`, sem HTML nem JSON cru).
+
+```bash
+python melhorar_corpus_dados.py          # opcional: qualidade do corpus
+python gerar_dados.py --apenas-pdf       # regenera PDFs a partir dos JSON
+python rebuild_rag_index.py --force --stats
+```
+
+| Flag | Ação |
+|------|------|
+| `--apenas-pdf` | Só PDFs (JSON existentes) |
+| `--force` | Regera JSON via OpenAI |
+| `--pdf-json-legacy` | Formato antigo (HTML + JSON embutido) — não recomendado |
 
 ---
 
