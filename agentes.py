@@ -4,7 +4,7 @@ from langchain_openai import ChatOpenAI
 
 from config import LLM_MODEL, MedicalState
 from logging_auditoria import registrar_auditoria
-from rag import formatar_fonte_metadata, get_retriever
+from rag import get_retriever, montar_fontes_rag
 
 # ============================================================
 # AGENTE PRONTUÁRIO — integrado em prontuario.py
@@ -20,7 +20,7 @@ def agente_pesquisador(state: MedicalState):
     docs = get_retriever().invoke(pergunta)
 
     contexto = "\n\n".join([doc.page_content for doc in docs])
-    fontes = "\n".join(f"- {formatar_fonte_metadata(doc.metadata)}" for doc in docs)
+    fontes, fontes_rag = montar_fontes_rag(docs)
 
     bloco_paciente = ""
     if state.get("dados_paciente"):
@@ -42,6 +42,7 @@ FONTES RECUPERADAS:
     return {
         "contexto_recuperado": contexto_final,
         "fontes": fontes,
+        "fontes_rag": fontes_rag,
     }
 
 
@@ -128,6 +129,7 @@ def validar_sugestao(state: MedicalState):
             "patient_id": state.get("patient_id", ""),
             "aprovado": aprovado,
             "fontes": state.get("fontes", ""),
+            "fontes_rag": state.get("fontes_rag") or [],
         }
     )
 
@@ -141,10 +143,11 @@ def validar_sugestao(state: MedicalState):
 
 def finalizar_consulta(state: MedicalState):
     """Monta resposta final após aprovação humana."""
+    bloco_fontes = state.get("fontes") or "Nenhuma fonte recuperada."
     resposta = (
         f"{state.get('sugestao_conduta', '')}\n\n"
         f"---\n"
-        f"FONTES CONSULTADAS (RAG):\n{state.get('fontes', 'Nenhuma')}\n\n"
+        f"FONTES CONSULTADAS (RAG):\n{bloco_fontes}\n\n"
         f"✓ Resposta aprovada em revisão humana (HITL).\n"
         f"⚠️ Não substitui avaliação médica presencial."
     )
@@ -160,6 +163,7 @@ def registrar_log(state: MedicalState):
             "aprovado": state.get("validado_por_humano", False),
             "resposta_preview": (state.get("resposta") or "")[:500],
             "fontes": state.get("fontes", ""),
+            "fontes_rag": state.get("fontes_rag") or [],
         }
     )
     return {}

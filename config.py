@@ -60,6 +60,7 @@ class MedicalState(TypedDict, total=False):
     alertas: list[str]
     contexto_recuperado: str
     fontes: str
+    fontes_rag: list[dict]
     sugestao_conduta: str
     validado_por_humano: bool
     resposta: str
@@ -75,6 +76,7 @@ def estado_inicial(pergunta: str, historico: list | None = None, patient_id: str
         alertas=[],
         contexto_recuperado="",
         fontes="",
+        fontes_rag=[],
         sugestao_conduta="",
         validado_por_humano=False,
         resposta="",

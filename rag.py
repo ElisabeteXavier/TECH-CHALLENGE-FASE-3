@@ -81,14 +81,75 @@ def _atribuir_chunk_ids(chunks: list) -> list:
     return chunks
 
 
+CABECALHO_FONTES_PADRAO = "arquivo | categoria | pagina | chunk_id"
+
+
 def formatar_fonte_metadata(metadata: dict) -> str:
-    """Linha legível para HITL e resposta final."""
+    """Linha legível para HITL, resposta final e log."""
+    arquivo = metadata.get("fonte_arquivo") or Path(
+        str(metadata.get("fonte", "desconhecida"))
+    ).name
     return (
-        f"{metadata.get('fonte_arquivo', metadata.get('fonte', 'desconhecida'))} | "
+        f"{arquivo} | "
         f"{metadata.get('categoria', '?')} | "
         f"p.{metadata.get('pagina', '?')} | "
         f"{metadata.get('chunk_id', '?')}"
     )
+
+
+def registro_fonte_de_metadata(metadata: dict) -> dict:
+    """Registro estruturado para auditoria JSONL."""
+    arquivo = metadata.get("fonte_arquivo") or Path(
+        str(metadata.get("fonte", "desconhecida"))
+    ).name
+    return {
+        "fonte_arquivo": arquivo,
+        "categoria": metadata.get("categoria", ""),
+        "pagina": metadata.get("pagina", 0),
+        "chunk_id": metadata.get("chunk_id", ""),
+        "linha": formatar_fonte_metadata(metadata),
+    }
+
+
+def _chave_fonte(metadata: dict) -> str:
+    """Chave única por chunk recuperado (deduplicação)."""
+    registro = registro_fonte_de_metadata(metadata)
+    return (
+        f"{registro['fonte_arquivo']}|{registro['categoria']}|"
+        f"{registro['pagina']}|{registro['chunk_id']}"
+    )
+
+
+def montar_fontes_rag(documentos: list) -> tuple[str, list[dict]]:
+    """
+    Monta bloco de fontes sem duplicatas, ordenado e padronizado.
+    Retorna (texto para exibição, lista estruturada para log).
+    """
+    vistos: set[str] = set()
+    registros: list[dict] = []
+
+    for doc in documentos:
+        chave = _chave_fonte(doc.metadata)
+        if chave in vistos:
+            continue
+        vistos.add(chave)
+        registros.append(registro_fonte_de_metadata(doc.metadata))
+
+    registros.sort(
+        key=lambda r: (
+            r.get("categoria", ""),
+            r.get("fonte_arquivo", ""),
+            r.get("pagina", 0),
+            r.get("chunk_id", ""),
+        )
+    )
+
+    if not registros:
+        return "Nenhuma fonte recuperada.", []
+
+    linhas = [f"- {r['linha']}" for r in registros]
+    texto = f"{CABECALHO_FONTES_PADRAO}\n" + "\n".join(linhas)
+    return texto, registros
 
 
 def _carregar_documentos(caminhos_pdfs: list[str]):
