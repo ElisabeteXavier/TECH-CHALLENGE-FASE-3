@@ -1,0 +1,22 @@
+[
+  {
+    "dataset": "qiaojin/PubMedQA",
+    "config": "pqa_labeled",
+    "status": "ok",
+    "path": "dados/externos/raw/pubmedqa_pqa_labeled",
+    "splits": {
+      "train": 1000
+    }
+  },
+  {
+    "dataset": "openlifescienceai/medmcqa",
+    "config": null,
+    "status": "ok",
+    "path": "dados/externos/raw/medmcqa",
+    "splits": {
+      "train": 182822,
+      "test": 6150,
+      "validation": 4183
+    }
+  }
+]

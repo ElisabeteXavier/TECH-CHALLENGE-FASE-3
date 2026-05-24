@@ -1,0 +1,2 @@
+Datasets externos baixados em 2026-05-24 13:04:44
+Arquivos versionados: download_manifest.json, medquad.zip, status txt
