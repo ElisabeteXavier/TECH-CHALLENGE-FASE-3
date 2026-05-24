@@ -53,9 +53,30 @@ def get_pdf_paths() -> list[str]:
     return paths
 
 
-class MedicalState(TypedDict):
+class MedicalState(TypedDict, total=False):
     pergunta: str
+    patient_id: str
+    dados_paciente: str
+    alertas: list[str]
     contexto_recuperado: str
+    fontes: str
     sugestao_conduta: str
     validado_por_humano: bool
-    historico: list[str]
+    resposta: str
+    historico: list
+
+
+def estado_inicial(pergunta: str, historico: list | None = None, patient_id: str = "") -> MedicalState:
+    """Estado padrão para nova consulta no grafo."""
+    return MedicalState(
+        pergunta=pergunta,
+        patient_id=patient_id,
+        dados_paciente="",
+        alertas=[],
+        contexto_recuperado="",
+        fontes="",
+        sugestao_conduta="",
+        validado_por_humano=False,
+        resposta="",
+        historico=historico or [],
+    )

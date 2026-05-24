@@ -1,9 +1,29 @@
-{
-  "paciente_id": "001",
-  "nome": "Paciente Exemplo",
-  "idade": 45,
-  "exames_pendentes": [],
-  "alergias": [],
-  "medicamentos_em_uso": [],
-  "ultima_consulta": null
-}
+[
+  {
+    "paciente_id": "P001",
+    "nome": "Paciente Exemplo Silva",
+    "idade": 58,
+    "alergias": ["dipirona"],
+    "medicamentos_em_uso": ["losartana 50mg", "metformina 850mg"],
+    "exames_pendentes": ["hemograma completo", "raio-x de tórax"],
+    "sinais_vitais": {
+      "spo2": 89,
+      "febre": true,
+      "pressao": "130/85"
+    },
+    "ultima_consulta": "2026-05-20"
+  },
+  {
+    "paciente_id": "P002",
+    "nome": "Paciente Exemplo Costa",
+    "idade": 34,
+    "alergias": [],
+    "medicamentos_em_uso": [],
+    "exames_pendentes": [],
+    "sinais_vitais": {
+      "spo2": 98,
+      "febre": false
+    },
+    "ultima_consulta": "2026-05-18"
+  }
+]
