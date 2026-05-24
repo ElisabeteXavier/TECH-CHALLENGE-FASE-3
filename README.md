@@ -72,6 +72,21 @@ Os PDFs são usados posteriormente no pipeline RAG.
 
 ---
 
+# 🔄 Rebuild do índice RAG (`rebuild_rag_index.py`)
+
+Após alterar PDFs ou metadados do pipeline, recrie o índice FAISS:
+
+```bash
+python rebuild_rag_index.py --force --stats
+```
+
+| Flag | Ação |
+|------|------|
+| `--stats` | Mostra PDFs, chunks, vetores e contagem por categoria |
+| `--force` | Remove `faiss_index/` e reindexa |
+
+---
+
 # ⬇️ Baixar dados externos (fine-tuning/avaliação)
 
 Para facilitar o uso por qualquer usuário, existe um comando único para baixar datasets externos em `dados/externos/`.
