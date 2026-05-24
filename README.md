@@ -161,6 +161,7 @@ CHUNK_SIZE=1500
 CHUNK_OVERLAP=300
 RAG_K=5
 RAG_FETCH_K=20
+RAG_SEARCH_TYPE=mmr
 ```
 
 | Variável | Obrigatória | Uso |
@@ -168,7 +169,8 @@ RAG_FETCH_K=20
 | `OPENAI_API_KEY` | sim (`main.py`) | Agentes LLM no LangGraph |
 | `LLM_MODEL` / `OPENAI_MODEL` | não (padrão `gpt-4o-mini`) | Modelo de chat |
 | `EMBEDDING_MODEL` | não (padrão `BAAI/bge-m3`) | Embeddings do RAG |
-| `RAG_K`, `RAG_FETCH_K` | não | Recuperação MMR no FAISS |
+| `RAG_K`, `RAG_FETCH_K` | não | Profundidade da recuperação (MMR usa fetch_k) |
+| `RAG_SEARCH_TYPE` | não (`mmr`) | `mmr` ou `similarity` |
 
 ---
 

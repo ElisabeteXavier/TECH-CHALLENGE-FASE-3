@@ -27,6 +27,8 @@ CHUNK_SIZE = int(os.getenv("CHUNK_SIZE", "1500"))
 CHUNK_OVERLAP = int(os.getenv("CHUNK_OVERLAP", "300"))
 RAG_K = int(os.getenv("RAG_K", "5"))
 RAG_FETCH_K = int(os.getenv("RAG_FETCH_K", "20"))
+_rag_search = os.getenv("RAG_SEARCH_TYPE", "mmr").strip().lower()
+RAG_SEARCH_TYPE = _rag_search if _rag_search in ("mmr", "similarity") else "mmr"
 
 # PDFs usados no RAG (mesma ordem do notebook)
 PDF_NOMES = [

@@ -13,8 +13,10 @@ from config import (
     EMBEDDING_DEVICE,
     EMBEDDING_MODEL,
     FAISS_DIR,
+    JSON_DIR,
     RAG_FETCH_K,
     RAG_K,
+    RAG_SEARCH_TYPE,
     get_pdf_paths,
 )
 
@@ -39,9 +41,16 @@ def _indice_persistido_existe() -> bool:
 
 
 def _retriever_from_vectorstore(vectorstore: FAISS):
+    """Retriever configurável via RAG_SEARCH_TYPE (mmr ou similarity)."""
+    if RAG_SEARCH_TYPE == "similarity":
+        return vectorstore.as_retriever(
+            search_type="similarity",
+            search_kwargs={"k": RAG_K},
+        )
+    fetch_k = max(RAG_K, RAG_FETCH_K)
     return vectorstore.as_retriever(
         search_type="mmr",
-        search_kwargs={"k": RAG_K, "fetch_k": RAG_FETCH_K},
+        search_kwargs={"k": RAG_K, "fetch_k": fetch_k},
     )
 
 
@@ -58,13 +67,28 @@ def _pagina_do_documento(metadata: dict) -> int:
     return int(pagina) + 1
 
 
+def _tipo_fonte_para_caminho(caminho: str) -> tuple[str, str | None]:
+    """
+    Padroniza tipo_fonte no pipeline JSON -> PDF -> RAG.
+    PDF indexado: tipo_fonte=pdf; se existir JSON da mesma categoria, registra par.
+    """
+    categoria = _categoria_de_arquivo(caminho)
+    json_path = JSON_DIR / f"{categoria}.json"
+    if json_path.is_file():
+        return "pdf", json_path.name
+    return "pdf", None
+
+
 def _enriquecer_metadata_pagina(doc, caminho: str) -> None:
     path = Path(caminho)
     categoria = _categoria_de_arquivo(caminho)
+    tipo_fonte, json_par = _tipo_fonte_para_caminho(caminho)
     doc.metadata["fonte_arquivo"] = path.name
     doc.metadata["categoria"] = categoria
     doc.metadata["pagina"] = _pagina_do_documento(doc.metadata)
-    doc.metadata["tipo_fonte"] = "pdf"
+    doc.metadata["tipo_fonte"] = tipo_fonte
+    if json_par:
+        doc.metadata["json_origem"] = json_par
     # Compatibilidade com código e índices antigos
     doc.metadata["fonte"] = str(path.resolve())
     doc.metadata["tipo"] = "documento_medico"
@@ -81,7 +105,7 @@ def _atribuir_chunk_ids(chunks: list) -> list:
     return chunks
 
 
-CABECALHO_FONTES_PADRAO = "arquivo | categoria | pagina | chunk_id"
+CABECALHO_FONTES_PADRAO = "arquivo | categoria | pagina | chunk_id | tipo_fonte"
 
 
 def formatar_fonte_metadata(metadata: dict) -> str:
@@ -89,11 +113,15 @@ def formatar_fonte_metadata(metadata: dict) -> str:
     arquivo = metadata.get("fonte_arquivo") or Path(
         str(metadata.get("fonte", "desconhecida"))
     ).name
+    tipo = metadata.get("tipo_fonte", "?")
+    if metadata.get("json_origem"):
+        tipo = f"{tipo}+json"
     return (
         f"{arquivo} | "
         f"{metadata.get('categoria', '?')} | "
         f"p.{metadata.get('pagina', '?')} | "
-        f"{metadata.get('chunk_id', '?')}"
+        f"{metadata.get('chunk_id', '?')} | "
+        f"{tipo}"
     )
 
 
@@ -102,11 +130,15 @@ def registro_fonte_de_metadata(metadata: dict) -> dict:
     arquivo = metadata.get("fonte_arquivo") or Path(
         str(metadata.get("fonte", "desconhecida"))
     ).name
+    tipo_fonte = metadata.get("tipo_fonte", "")
+    json_origem = metadata.get("json_origem")
     return {
         "fonte_arquivo": arquivo,
         "categoria": metadata.get("categoria", ""),
         "pagina": metadata.get("pagina", 0),
         "chunk_id": metadata.get("chunk_id", ""),
+        "tipo_fonte": tipo_fonte,
+        "json_origem": json_origem or "",
         "linha": formatar_fonte_metadata(metadata),
     }
 
