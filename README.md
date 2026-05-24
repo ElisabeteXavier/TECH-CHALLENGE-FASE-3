@@ -48,13 +48,16 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-Edite o `.env` e preencha:
+Edite o `.env` (a partir de `.env.example`) e preencha pelo menos:
 
 ```env
-OPENAI_API_KEY=sua_chave
+OPENAI_API_KEY=sua_chave_valida
+LLM_MODEL=gpt-4o-mini
+EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
 ```
 
-> A chave da OpenAI é necessária apenas para gerar novos JSON pela API.
+> `OPENAI_API_KEY` é obrigatória para rodar `main.py` (agentes analista/validador).  
+> Use `EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2` em desenvolvimento local para evitar download pesado do `bge-m3`.
 
 ---
 
@@ -150,14 +153,22 @@ python gerar_dados.py --force
 # 🔐 Variáveis de ambiente (`.env`)
 
 ```env
-OPENAI_API_KEY=sua_chave
-OPENAI_MODEL=gpt-4o-mini
+OPENAI_API_KEY=sua_chave_valida
+LLM_MODEL=gpt-4o-mini
+EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
+EMBEDDING_DEVICE=cpu
+CHUNK_SIZE=1500
+CHUNK_OVERLAP=300
+RAG_K=5
+RAG_FETCH_K=20
 ```
 
-| Variável | Obrigatória |
-|---|---|
-| OPENAI_API_KEY | apenas se gerar JSON novo |
-| OPENAI_MODEL | opcional |
+| Variável | Obrigatória | Uso |
+|---|---|---|
+| `OPENAI_API_KEY` | sim (`main.py`) | Agentes LLM no LangGraph |
+| `LLM_MODEL` / `OPENAI_MODEL` | não (padrão `gpt-4o-mini`) | Modelo de chat |
+| `EMBEDDING_MODEL` | não (padrão `BAAI/bge-m3`) | Embeddings do RAG |
+| `RAG_K`, `RAG_FETCH_K` | não | Recuperação MMR no FAISS |
 
 ---
 

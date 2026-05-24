@@ -19,7 +19,7 @@ FAISS_DIR = BASE_DIR / "faiss_index"
 
 # --- modelos ---
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "BAAI/bge-m3")
-LLM_MODEL = os.getenv("LLM_MODEL", "gpt-4o-mini")
+LLM_MODEL = os.getenv("LLM_MODEL") or os.getenv("OPENAI_MODEL", "gpt-4o-mini")
 EMBEDDING_DEVICE = os.getenv("EMBEDDING_DEVICE", "cpu")
 
 # --- RAG ---
