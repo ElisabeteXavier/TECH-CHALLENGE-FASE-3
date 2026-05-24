@@ -4,7 +4,7 @@ from langchain_openai import ChatOpenAI
 
 from config import LLM_MODEL, MedicalState
 from logging_auditoria import registrar_auditoria
-from rag import get_retriever
+from rag import formatar_fonte_metadata, get_retriever
 
 # ============================================================
 # AGENTE PRONTUÁRIO — integrado em prontuario.py
@@ -20,9 +20,7 @@ def agente_pesquisador(state: MedicalState):
     docs = get_retriever().invoke(pergunta)
 
     contexto = "\n\n".join([doc.page_content for doc in docs])
-    fontes = "\n".join(
-        f"- {doc.metadata.get('fonte', 'desconhecida')}" for doc in docs
-    )
+    fontes = "\n".join(f"- {formatar_fonte_metadata(doc.metadata)}" for doc in docs)
 
     bloco_paciente = ""
     if state.get("dados_paciente"):

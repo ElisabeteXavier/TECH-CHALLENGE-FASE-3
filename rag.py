@@ -1,5 +1,7 @@
 """Embeddings, índice FAISS e retriever."""
 
+from pathlib import Path
+
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings
@@ -43,21 +45,67 @@ def _retriever_from_vectorstore(vectorstore: FAISS):
     )
 
 
+def _categoria_de_arquivo(caminho: str) -> str:
+    """Nome do PDF sem extensão (faqs, protocolos, laudos, ...)."""
+    return Path(caminho).stem
+
+
+def _pagina_do_documento(metadata: dict) -> int:
+    """PyPDFLoader usa 'page' (0-based); expõe página humana (1-based)."""
+    pagina = metadata.get("page", metadata.get("page_number"))
+    if pagina is None:
+        return 0
+    return int(pagina) + 1
+
+
+def _enriquecer_metadata_pagina(doc, caminho: str) -> None:
+    path = Path(caminho)
+    categoria = _categoria_de_arquivo(caminho)
+    doc.metadata["fonte_arquivo"] = path.name
+    doc.metadata["categoria"] = categoria
+    doc.metadata["pagina"] = _pagina_do_documento(doc.metadata)
+    doc.metadata["tipo_fonte"] = "pdf"
+    # Compatibilidade com código e índices antigos
+    doc.metadata["fonte"] = str(path.resolve())
+    doc.metadata["tipo"] = "documento_medico"
+
+
+def _atribuir_chunk_ids(chunks: list) -> list:
+    """Identificador estável por categoria após o split."""
+    contadores: dict[str, int] = {}
+    for doc in chunks:
+        categoria = doc.metadata.get("categoria", "doc")
+        indice = contadores.get(categoria, 0)
+        doc.metadata["chunk_id"] = f"{categoria}_{indice:04d}"
+        contadores[categoria] = indice + 1
+    return chunks
+
+
+def formatar_fonte_metadata(metadata: dict) -> str:
+    """Linha legível para HITL e resposta final."""
+    return (
+        f"{metadata.get('fonte_arquivo', metadata.get('fonte', 'desconhecida'))} | "
+        f"{metadata.get('categoria', '?')} | "
+        f"p.{metadata.get('pagina', '?')} | "
+        f"{metadata.get('chunk_id', '?')}"
+    )
+
+
 def _carregar_documentos(caminhos_pdfs: list[str]):
     documentos_totais = []
     for caminho in caminhos_pdfs:
         loader = PyPDFLoader(caminho)
         documentos = loader.load()
         for doc in documentos:
-            doc.metadata["fonte"] = caminho
-            doc.metadata["tipo"] = "documento_medico"
+            _enriquecer_metadata_pagina(doc, caminho)
         documentos_totais.extend(documentos)
 
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=CHUNK_SIZE,
         chunk_overlap=CHUNK_OVERLAP,
     )
-    return splitter.split_documents(documentos_totais)
+    chunks = splitter.split_documents(documentos_totais)
+    return _atribuir_chunk_ids(chunks)
 
 
 def _criar_e_salvar_vectorstore(caminhos_pdfs: list[str]) -> FAISS:
