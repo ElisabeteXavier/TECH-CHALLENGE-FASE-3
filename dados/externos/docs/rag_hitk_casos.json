@@ -1,0 +1,62 @@
+[
+  {
+    "id": "caso_01",
+    "pergunta": "Qual o protocolo de atendimento em parada cardiorrespiratoria com RCP?",
+    "categoria_esperada": "protocolos",
+    "descricao": "Emergência / ACLS em protocolos.pdf"
+  },
+  {
+    "id": "caso_02",
+    "pergunta": "Quais documentos sao necessarios para admissao hospitalar?",
+    "categoria_esperada": "faqs",
+    "descricao": "FAQ de admissao em faqs.pdf"
+  },
+  {
+    "id": "caso_03",
+    "pergunta": "Paciente com dor precordial e classificacao de risco vermelho na triagem",
+    "categoria_esperada": "triagens",
+    "descricao": "Triagem cardiologica em triagens.pdf"
+  },
+  {
+    "id": "caso_04",
+    "pergunta": "Posologia de amoxicilina antibiotico por sete dias",
+    "categoria_esperada": "receitas",
+    "descricao": "Receita de antibiotico em receitas.pdf"
+  },
+  {
+    "id": "caso_05",
+    "pergunta": "Resultado de radiografia de torax sem alteracoes pulmonares",
+    "categoria_esperada": "laudos",
+    "descricao": "Laudo radiologico em laudos.pdf"
+  },
+  {
+    "id": "caso_06",
+    "pergunta": "Evolucao clinica com febre e dor abdominal hidratacao venosa",
+    "categoria_esperada": "evolucoes",
+    "descricao": "Evolucao clinica geral em evolucoes.pdf"
+  },
+  {
+    "id": "caso_07",
+    "pergunta": "Prevencao de infeccao em cateter venoso central higienizacao",
+    "categoria_esperada": "protocolos",
+    "descricao": "Controle de infeccao em protocolos.pdf"
+  },
+  {
+    "id": "caso_08",
+    "pergunta": "O que e prontuario medico e qual sua importancia?",
+    "categoria_esperada": "faqs",
+    "descricao": "FAQ prontuario em faqs.pdf"
+  },
+  {
+    "id": "caso_09",
+    "pergunta": "Hemograma completo plaquetas dentro da referencia",
+    "categoria_esperada": "laudos",
+    "descricao": "Laudo hematologia em laudos.pdf"
+  },
+  {
+    "id": "caso_10",
+    "pergunta": "Paciente com dispneia edema e pressao arterial elevada cardiologia",
+    "categoria_esperada": "evolucoes",
+    "descricao": "Evolucao cardiologia em evolucoes.pdf"
+  }
+]

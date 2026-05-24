@@ -87,6 +87,19 @@ python rebuild_rag_index.py --force --stats
 
 ---
 
+# 📏 Avaliação hit@k do RAG (`avaliar_rag_hitk.py`)
+
+Suíte de 10 perguntas com categoria esperada (`dados/externos/docs/rag_hitk_casos.json`):
+
+```bash
+python avaliar_rag_hitk.py
+python avaliar_rag_hitk.py --k 1 3 5
+```
+
+Saída: `dados/externos/docs/rag_hitk_resultados.json` (métricas + detalhe por caso).
+
+---
+
 # ⬇️ Baixar dados externos (fine-tuning/avaliação)
 
 Para facilitar o uso por qualquer usuário, existe um comando único para baixar datasets externos em `dados/externos/`.

@@ -1,0 +1,186 @@
+{
+  "total_casos": 10,
+  "metricas": {
+    "hit@1": 1.0,
+    "hit@3": 1.0,
+    "hit@5": 1.0
+  },
+  "casos": [
+    {
+      "id": "caso_01",
+      "pergunta": "Qual o protocolo de atendimento em parada cardiorrespiratoria com RCP?",
+      "categoria_esperada": "protocolos",
+      "categorias_top": [
+        "protocolos",
+        "evolucoes",
+        "faqs",
+        "triagens",
+        "protocolos"
+      ],
+      "hits": {
+        "hit@1": true,
+        "hit@3": true,
+        "hit@5": true
+      }
+    },
+    {
+      "id": "caso_02",
+      "pergunta": "Quais documentos sao necessarios para admissao hospitalar?",
+      "categoria_esperada": "faqs",
+      "categorias_top": [
+        "faqs",
+        "evolucoes",
+        "laudos",
+        "faqs",
+        "protocolos"
+      ],
+      "hits": {
+        "hit@1": true,
+        "hit@3": true,
+        "hit@5": true
+      }
+    },
+    {
+      "id": "caso_03",
+      "pergunta": "Paciente com dor precordial e classificacao de risco vermelho na triagem",
+      "categoria_esperada": "triagens",
+      "categorias_top": [
+        "triagens",
+        "evolucoes",
+        "protocolos",
+        "laudos",
+        "triagens"
+      ],
+      "hits": {
+        "hit@1": true,
+        "hit@3": true,
+        "hit@5": true
+      }
+    },
+    {
+      "id": "caso_04",
+      "pergunta": "Posologia de amoxicilina antibiotico por sete dias",
+      "categoria_esperada": "receitas",
+      "categorias_top": [
+        "receitas",
+        "evolucoes",
+        "protocolos",
+        "evolucoes",
+        "triagens"
+      ],
+      "hits": {
+        "hit@1": true,
+        "hit@3": true,
+        "hit@5": true
+      }
+    },
+    {
+      "id": "caso_05",
+      "pergunta": "Resultado de radiografia de torax sem alteracoes pulmonares",
+      "categoria_esperada": "laudos",
+      "categorias_top": [
+        "laudos",
+        "evolucoes",
+        "triagens",
+        "laudos",
+        "evolucoes"
+      ],
+      "hits": {
+        "hit@1": true,
+        "hit@3": true,
+        "hit@5": true
+      }
+    },
+    {
+      "id": "caso_06",
+      "pergunta": "Evolucao clinica com febre e dor abdominal hidratacao venosa",
+      "categoria_esperada": "evolucoes",
+      "categorias_top": [
+        "evolucoes",
+        "laudos",
+        "receitas",
+        "evolucoes",
+        "evolucoes"
+      ],
+      "hits": {
+        "hit@1": true,
+        "hit@3": true,
+        "hit@5": true
+      }
+    },
+    {
+      "id": "caso_07",
+      "pergunta": "Prevencao de infeccao em cateter venoso central higienizacao",
+      "categoria_esperada": "protocolos",
+      "categorias_top": [
+        "protocolos",
+        "evolucoes",
+        "receitas",
+        "triagens",
+        "evolucoes"
+      ],
+      "hits": {
+        "hit@1": true,
+        "hit@3": true,
+        "hit@5": true
+      }
+    },
+    {
+      "id": "caso_08",
+      "pergunta": "O que e prontuario medico e qual sua importancia?",
+      "categoria_esperada": "faqs",
+      "categorias_top": [
+        "faqs",
+        "evolucoes",
+        "laudos",
+        "protocolos",
+        "faqs"
+      ],
+      "hits": {
+        "hit@1": true,
+        "hit@3": true,
+        "hit@5": true
+      }
+    },
+    {
+      "id": "caso_09",
+      "pergunta": "Hemograma completo plaquetas dentro da referencia",
+      "categoria_esperada": "laudos",
+      "categorias_top": [
+        "laudos",
+        "evolucoes",
+        "protocolos",
+        "triagens",
+        "evolucoes"
+      ],
+      "hits": {
+        "hit@1": true,
+        "hit@3": true,
+        "hit@5": true
+      }
+    },
+    {
+      "id": "caso_10",
+      "pergunta": "Paciente com dispneia edema e pressao arterial elevada cardiologia",
+      "categoria_esperada": "evolucoes",
+      "categorias_top": [
+        "evolucoes",
+        "protocolos",
+        "laudos",
+        "triagens",
+        "receitas"
+      ],
+      "hits": {
+        "hit@1": true,
+        "hit@3": true,
+        "hit@5": true
+      }
+    }
+  ],
+  "gerado_em": "2026-05-24T18:06:35.547677+00:00",
+  "config": {
+    "rag_k": 5,
+    "rag_search_type": "mmr",
+    "arquivo_casos": "dados/externos/docs/rag_hitk_casos.json"
+  }
+}
