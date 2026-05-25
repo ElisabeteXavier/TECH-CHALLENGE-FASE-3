@@ -347,22 +347,63 @@ integrante do grupo
 
 # 🔍 Funcionamento do Sistema
 
-## Pipeline Geral
+## Diagrama do Fluxo LangGraph
+
+```mermaid
+flowchart TD
+    START(["🏥 Entrada\npergunta + patient_id"])
+    END_NODE(["✅ Resposta Final\naprovada + fontes RAG"])
+
+    START --> PRON
+
+    PRON["📋 prontuario\ncarregar_prontuario()\n—\nCarrega dados do paciente\nGera alertas clínicos"]
+    PESQ["🔍 pesquisador · agente_pesquisador()\n—\nConsulta índice FAISS via RAG\nMonta contexto clínico + prontuário + alertas\nFormata fontes para explainability"]
+    ANAL["🧠 analista · agente_analista()\n—\nLLM com Chain-of-Thought\nGera sugestão de conduta\n⚠️ nunca prescreve diretamente"]
+    VALID["👨‍⚕️ validador · validar_sugestao()\n—\nExibe sugestão + fontes ao médico\nAguarda aprovação s/n · HITL\nRegistra auditoria JSONL"]
+    FINAL["📄 finalizar · finalizar_consulta()\n—\nMonta resposta final com fontes RAG\n+ aviso de validação humana"]
+    LOG["📝 log · registrar_log()\n—\nAuditoria completa em JSONL\npergunta · resposta · fontes · aprovação"]
+
+    PRON --> PESQ
+    PESQ --> ANAL
+    ANAL --> VALID
+    VALID -- "aprovado = True ✅" --> FINAL
+    VALID -- "aprovado = False 🔄 re-gera" --> ANAL
+    FINAL --> LOG
+    LOG --> END_NODE
+
+    subgraph FAISS["🗄️ Base de Conhecimento RAG"]
+        direction LR
+        PDF["PDFs Médicos\nprotocolos · laudos\nreceitas · triagens\nfaqs · evoluções"]
+        EMBED["HuggingFace Embeddings\nsentence-transformers"]
+        IDX["Índice FAISS\nbusca MMR / similarity"]
+        PDF --> EMBED --> IDX
+    end
+
+    IDX -- "k chunks + metadata\n(categoria, página, chunk_id)" --> PESQ
+
+    subgraph MEM["💾 Persistência"]
+        SAVER["MemorySaver\nLangGraph Checkpointer\nhistórico por thread_id"]
+    end
+```
+
+## Pipeline Geral (resumo textual)
 
 ```text
 Pergunta do usuário
         ↓
-Busca vetorial (FAISS)
+[prontuario] Carrega dados do paciente por patient_id
         ↓
-Recuperação de contexto dos PDFs
+[pesquisador] Busca vetorial FAISS → recupera protocolos relevantes
         ↓
-Análise com LLM
+[analista] LLM gera sugestão de conduta com Chain-of-Thought
         ↓
-Sugestão de conduta clínica
+[validador] Médico aprova ou rejeita (HITL) → loop se rejeitado
         ↓
-Validação humana (HITL)
+[finalizar] Monta resposta final com fontes e aviso
         ↓
-Resposta final
+[log] Auditoria JSONL completa
+        ↓
+Resposta final aprovada
 ```
 
 ---

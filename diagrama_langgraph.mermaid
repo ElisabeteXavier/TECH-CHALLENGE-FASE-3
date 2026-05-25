@@ -1,0 +1,56 @@
+---
+title: Assistente Médico — Fluxo LangGraph (MedicalState)
+---
+flowchart TD
+    START(["🏥 Entrada\n(pergunta + patient_id"])
+    END_NODE(["✅ Resposta Final\naprovada + fontes RAG"])
+
+    START --> PRON
+
+    subgraph GRAPH["LangGraph · StateGraph(MedicalState)"]
+        direction TB
+
+        subgraph INGESTION["Ingestão de Contexto"]
+            PRON["📋 prontuario\ncarregar_prontuario()\n─────────────────\nBusca dados do paciente\npor patient_id\nGera alertas clínicos"]
+        end
+
+        subgraph RAG_PIPELINE["Recuperação RAG"]
+            PESQ["🔍 pesquisador\nagente_pesquisador()\n─────────────────\nget_retriever().invoke(pergunta)\nMonta contexto clínico\n+ bloco paciente + alertas\n+ fontes formatadas"]
+        end
+
+        subgraph LLM_LAYER["Geração de Sugestão (LLM)"]
+            ANAL["🧠 analista\nagente_analista()\n─────────────────\nChatOpenAI / LLaMA fine-tuned\nChain-of-Thought prompt\nGera sugestão de conduta\n(não vinculante)"]
+        end
+
+        subgraph HITL_LAYER["Validação Humana (HITL)"]
+            VALID["👨‍⚕️ validador\nvalidar_sugestao()\n─────────────────\nExibe prontuário + sugestão\n+ fontes ao médico\nAguarda aprovação (s/n)\nRegistra auditoria JSONL"]
+        end
+
+        subgraph OUTPUT["Finalização"]
+            FINAL["📄 finalizar\nfinalizar_consulta()\n─────────────────\nMonta resposta final\ncom sugestão + fontes RAG\n+ aviso de validação humana"]
+            LOG["📝 log\nregistrar_log()\n─────────────────\nRegistra consulta completa\nem auditoria JSONL\n(pergunta, resposta, fontes)"]
+        end
+
+        PRON --> PESQ
+        PESQ --> ANAL
+        ANAL --> VALID
+        VALID -->|"validado_por_humano = True\n(médico aprovou)"| FINAL
+        VALID -->|"validado_por_humano = False\n(médico rejeitou — re-gera)"| ANAL
+        FINAL --> LOG
+    end
+
+    subgraph FAISS_STORE["Base de Conhecimento (FAISS + RAG)"]
+        direction LR
+        PDFS["📁 PDFs Médicos\nprotocolos · laudos\nreceitas · triagens\nfaqs · evoluções"]
+        EMBED["HuggingFace\nEmbeddings\n(sentence-transformers)"]
+        FAISS_IDX["🗄️ Índice FAISS\n(persistido em disco)\nbusca MMR ou similarity\nk chunks relevantes"]
+        PDFS --> EMBED --> FAISS_IDX
+    end
+
+    subgraph MEMORY["Persistência de Estado"]
+        MEM["💾 MemorySaver\n(LangGraph Checkpointer)\nMantem histórico\npor thread_id"]
+    end
+
+    FAISS_IDX -->|"chunks relevantes\n+ metadata (categoria,\npágina, chunk_id)"| PESQ
+    GRAPH <-->|"checkpoint\npor step"| MEM
+    LOG --> END_NODE
